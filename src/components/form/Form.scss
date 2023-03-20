@@ -1,0 +1,50 @@
+@import '../../styles/constants.scss';
+
+.form {
+  position: relative;
+  &__input {
+    height: 59px;
+    border-radius: 36px;
+    border: none;
+    background: #EDEDED;
+    padding-left: 10px;
+    padding-right: 50px;
+    outline: none;
+    width: 100%;
+    color: #5C6370;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5rem;
+    letter-spacing: 0em;
+    text-align: left;
+
+    &__input::placeholder {
+      font-size: 1rem;
+      font-weight: 400;
+      line-height: 1.5rem;
+    }
+
+    &_email {
+      width: 282px;
+    }
+
+    &_search {
+      width: 238px;
+    }
+
+    &_search-wide {
+      width: 263px;
+    }
+  }
+  &__submit {
+    padding: 0;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    cursor: pointer;
+    border: none;
+    width: 39px;
+    height: 39px;
+    border-radius: 50%;
+  }
+}
