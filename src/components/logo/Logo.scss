@@ -1,0 +1,13 @@
+.logo {
+  width: 156px;
+  height: 66px;
+
+  &_color_white {
+    background-image: url('../../assets/images/logo-white.svg');
+  }
+
+  &_color_dark {
+    background-image: url('../../assets/images/logo-dark.svg');
+  }
+
+}
