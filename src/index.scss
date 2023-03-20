@@ -1,6 +1,15 @@
+@import './styles/constants.scss';
+@import './styles/fonts.scss';
+
 html,
 body {
   height: 100%;
+  font-size: $font-size;
+  font-family: $font-family;
+}
+
+* {
+  box-sizing: border-box;
 }
 
 #root {
