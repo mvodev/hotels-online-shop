@@ -1,5 +1,13 @@
 .nav-list {
 
+  &_dark {
+    color: #3F4E65;
+  }
+
+  &_white {
+    color: white;
+  }
+
   &__items {
     display: flex;
     gap: 60px;
