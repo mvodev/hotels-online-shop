@@ -1,0 +1,21 @@
+.nav-list {
+
+  &__items {
+    display: flex;
+    gap: 60px;
+    flex-direction: row;
+  }
+
+  &__item {
+    list-style-type: none;
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+  }
+
+  &__items.nav-list__items_vertival{
+    flex-direction: column;
+    gap: 20px;
+  }
+}
