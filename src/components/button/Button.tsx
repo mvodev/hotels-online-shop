@@ -5,7 +5,7 @@ import catalogUrl from '../../assets/images/catalog.svg';
 import downloadUrl from '../../assets/images/download.svg';
 
 export type ButtonProps = {
-  buttonType: 'common' | 'download' | 'download-wide' | 'cart' | 'delete'
+  buttonType: 'common' | 'download' | 'download-wide' |'download-extra-wide' | 'cart' | 'delete'
   text?:string,
   href?:string,
 }
@@ -24,7 +24,7 @@ const Button = (props:ButtonProps & React.ButtonHTMLAttributes<HTMLButtonElement
   } else if (buttonType === 'download') {
     alt = 'catalog image';
     imgSrc = catalogUrl;
-  } else if (buttonType === 'download-wide') {
+  } else if (buttonType === 'download-wide' || buttonType === 'download-extra-wide') {
     alt = 'download image';
     imgSrc = downloadUrl;
   }

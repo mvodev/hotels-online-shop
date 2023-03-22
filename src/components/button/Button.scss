@@ -43,9 +43,8 @@
     font-size: 1.17rem;
   }
 
-  &_download {
+  &_download,&_download-wide,&_download-extra-wide {
     height: 59px;
-    width: 192px;
     border-radius: 79px;
     font-size: 1.17rem;
     a {
@@ -53,13 +52,16 @@
     }
   }
 
+  &_download {
+    width: 192px;
+  }
+
   &_download-wide {
-    height: 59px;
     width: 200px;
-    border-radius: 79px;
-    a {
-      gap: 15px;
-    }
+  }
+
+  &_download-extra-wide {
+    width: 214px;
   }
 
 }
