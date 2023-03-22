@@ -1,7 +1,43 @@
+@import '../../styles/constants.scss';
+
 .footer {
   min-height: 500px;
+  color: white;
   padding: 10px;
   max-width: $max-width;
   width: 100%;
   background-color: #3F4E65;
+  padding-left: 277px;
+  padding-top: 71px;
+  display: flex;
+  flex-direction: row;
+  gap: 59px;
+
+  &__description {
+    max-width: 320px;
+    width: 100%;
+  }
+
+  &__nav {
+    display: flex;
+    flex-direction: row;
+    gap: 95px;
+  }
+
+  &__visa-img,
+  &__mastercard-img {
+    width: 61px;
+    height: 39px;
+  }
+
+  &__visa-img {
+    background-image: url('../../assets/images/visa.svg');
+    background-size: cover;
+  }
+
+  &__mastercard-img {
+    background-image: url('../../assets/images/mastercard.svg');
+    background-size: cover;
+  }
+
 }

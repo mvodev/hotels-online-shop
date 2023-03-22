@@ -1,9 +1,74 @@
+import Button from '../button/Button';
+import Form from '../form/Form';
+import Logo from '../logo/Logo';
+import NavList from '../nav-list/NavList';
 import './Footer.scss';
+export type FooterPropsType = {
+  callbackRef:string
+}
 
-const Footer = () => {
+const Footer = (props:FooterPropsType) => {
+  const {callbackRef} = props;
+
   return (
     <footer className='footer'>
-      
+      <div className="footer__left-side">
+        <Logo mode='white'/>
+        <p className='footer__description'>
+          Компания «Султан» — снабжаем розничные магазины товарами 
+          "под ключ" в Кокчетаве и Акмолинской области
+        </p>
+        <h3 className='footer__sub-header'>Подпишись на скидки и акции</h3>
+        <Form type='email' action='#'/>
+      </div>
+      <div className="footer__right-side">
+        <div className="footer__nav">
+          <div className="footer__nav-wrapper">
+            <h2 className='footer__header'>Меню сайта:</h2>
+              <NavList 
+              mode='white' isVertical={true} 
+              links={[
+                {text:'О компании',href:'mock-address-change-me'},
+                {text:'Доставка и оплата',href:'mock-address-change-me'},
+                {text:'Возврат',href:'mock-address-change-me'},
+                {text:'Контакты',href:'mock-address-change-me'}
+              ]}
+            />
+          </div>
+          <div className="footer__nav-wrapper">
+            <h2 className='footer__header'>Категории:</h2>
+              <NavList 
+              mode='white' isVertical={true} 
+              links={[
+                {text:'О компании',href:'mock-address-change-me'},
+                {text:'Доставка и оплата',href:'mock-address-change-me'},
+                {text:'Возврат',href:'mock-address-change-me'},
+                {text:'Контакты',href:'mock-address-change-me'}
+              ]}
+            />
+          </div>
+        </div>
+        <div className="footer__price">
+          <h3>Скачать прайс-лист:</h3>
+          <Button buttonType='download-extra-wide' text='Прайс-лист'/>
+        </div>
+        <div className="footer__contacts">
+          <h3>Контакты:</h3>
+          <address className="footer__address">
+            <a className="footer__tel" href="tel:+77774900091">+7 (777) 490-00-91</a>
+          </address>
+          <span>время работы: 9:00-20:00</span>
+          <a href={callbackRef}>Заказать звонок</a>
+          <address className="footer__address">
+            <a className="footer__email" href="mailto:info@conquest.watch.ru">opt.sultan@mail.ru</a>
+          </address>
+          <span>На связи в любое время</span>
+          <div className="footer__cards">
+            <div className="footer__visa-img"></div>
+            <div className="footer__mastercard-img"></div>
+          </div>
+        </div>
+      </div>
     </footer>
   )
 }
