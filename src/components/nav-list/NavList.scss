@@ -23,6 +23,12 @@
     }
   }
 
+  &__item:hover {
+    a {
+      color: gray;
+    }
+  }
+
   &__items.nav-list__items_vertival{
     flex-direction: column;
     gap: 20px;
