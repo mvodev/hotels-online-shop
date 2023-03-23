@@ -1,0 +1,12 @@
+.cart {
+  height: 46px;
+  max-width: 128px;
+  width: 100%;
+
+  &__img {
+    width: 46px;
+    height: 46px;
+    background-image: url('../../assets/images/basket.svg');
+  }
+
+}  
