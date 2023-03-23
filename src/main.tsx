@@ -6,6 +6,7 @@ import './index.scss';
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
+    <h1>Тестовое задание HOTELS.RU интернет магазин</h1>
     <MainPage />
   </React.StrictMode>,
 )

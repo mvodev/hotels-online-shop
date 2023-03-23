@@ -1,10 +1,11 @@
 import Footer from './components/footer/Footer';
+import Header from './components/header/Header';
 import './MainPage.scss';
 
 const MainPage = () => {
   return (
     <section className="main-page">
-      <h1 className='main-page__header'>Тестовое задание HOTELS.RU интернет магазин</h1>
+      <Header mapUrl='mock-address-change-me'/>
       <Footer callbackRef='mock-address-change-me'/>
     </section>
   )
