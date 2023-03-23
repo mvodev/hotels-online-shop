@@ -70,19 +70,17 @@
     gap: 5px;
   }
 
-  &__contacts {
-    a {
-      color: white;
-      text-decoration: none;
-    }
-  }
-
   &__work-hours {
     margin: 5px 0;
   }
 
   &__address_email {
     margin-top: 25px;
+  }
+
+  &__email {
+    text-decoration: none;
+    color: inherit;
   }
 
   &__cards {

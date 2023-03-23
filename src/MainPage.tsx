@@ -5,7 +5,7 @@ import './MainPage.scss';
 const MainPage = () => {
   return (
     <section className="main-page">
-      <Header mapUrl='mock-address-change-me'/>
+      <Header callbackRef='mock-address-change-me'/>
       <Footer callbackRef='mock-address-change-me'/>
     </section>
   )

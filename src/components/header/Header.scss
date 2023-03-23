@@ -21,7 +21,7 @@
     border-bottom: 1px solid rgba($color: #3F4E65, $alpha: 0.2);
   }
 
-  &__first-row {
+  &__first-row,&__second-row {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -78,10 +78,19 @@
 
   &__location {
     background-image: url('../../assets/images/geoposition.svg');
+    background-size: cover;
   }
 
   &__envelope {
     background-image: url('../../assets/images/envelope.svg');
+    background-size: cover;
+  }
+
+  &__image {
+    height: 92px;
+    width: 70px;
+    background-image: url('../../assets/images/girl.svg');
+    background-size: cover;
   }
 
 }

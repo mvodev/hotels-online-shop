@@ -5,6 +5,8 @@ import NavList from '../nav-list/NavList';
 import whatsUpLink from '../../assets/images/whatsup.svg';
 import telegramLink from '../../assets/images/telegram.svg';
 import './Footer.scss';
+import Contacts from '../contacts/Contacts';
+
 export type FooterPropsType = {
   callbackRef:string
 }
@@ -74,13 +76,7 @@ const Footer = (props:FooterPropsType) => {
         </div>
         <div className="footer__contacts">
           <h3>Контакты:</h3>
-          <address className="footer__address">
-            <a className="footer__tel" href="tel:+77774900091">+7 (777) 490-00-91</a>
-          </address>
-          <div className="footer__work-hours">
-            время работы: <time dateTime='09:00'>9:00</time>-<time dateTime='20:00'>20:00</time>
-          </div>
-          <a href={callbackRef}>Заказать звонок</a>
+          <Contacts callbackRef={callbackRef} mode='white'/>
           <address className="footer__address footer__address_email">
             <a className="footer__email" href="mailto:info@conquest.watch.ru">opt.sultan@mail.ru</a>
           </address>

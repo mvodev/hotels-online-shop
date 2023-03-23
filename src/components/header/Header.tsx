@@ -1,12 +1,17 @@
+import Button from '../button/Button';
+import Form from '../form/Form';
+import Logo from '../logo/Logo';
 import NavList from '../nav-list/NavList';
+import Contacts from '../contacts/Contacts';
 import './Header.scss';
+import Cart from '../cart/Cart';
 
 export type HeaderPropsType = {
-  mapUrl: string
+  callbackRef: string,
 }
 
 const Header = (props: HeaderPropsType) => {
-  const { mapUrl } = props;
+  const { callbackRef } = props;
 
   return (
     <header className="header">
@@ -28,16 +33,24 @@ const Header = (props: HeaderPropsType) => {
           </div>
         </div>
         <NavList 
-            mode='dark' isVertical={false} 
-              links={[
-                {text:'О компании',href:'mock-address-change-me'},
-                {text:'Доставка и оплата',href:'mock-address-change-me'},
-                {text:'Возврат',href:'mock-address-change-me'},
-                {text:'Контакты',href:'mock-address-change-me'},
-              ]}
-            />
+          mode='dark' isVertical={false} 
+            links={[
+              {text:'О компании',href:'mock-address-change-me'},
+              {text:'Доставка и оплата',href:'mock-address-change-me'},
+              {text:'Возврат',href:'mock-address-change-me'},
+              {text:'Контакты',href:'mock-address-change-me'},
+            ]}
+          />
       </div>
-      <div className="header__second-row"></div>
+      <div className="header__second-row">
+        <Logo mode='dark'/>
+        <Button buttonType='download' text='Каталог'/>
+        <Form type='search' action='#'/>
+        <Contacts callbackRef={callbackRef} mode='dark'/>
+        <div className="header__image"></div>
+        <Button buttonType='download-wide' text='Прайс-лист'/>
+        <Cart />
+      </div>
     </header>
   )
 }
