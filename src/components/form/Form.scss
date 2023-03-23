@@ -2,6 +2,7 @@
 
 .form {
   position: relative;
+
   &__input {
     height: 59px;
     border-radius: 36px;
@@ -36,6 +37,7 @@
       width: 263px;
     }
   }
+
   &__submit {
     padding: 0;
     position: absolute;
@@ -46,5 +48,15 @@
     width: 39px;
     height: 39px;
     border-radius: 50%;
+    background-color: #FFC85E;
+    background-image: url('../../assets/images/loupe.svg');
+    background-size: 14.5px 14.5px;
+    background-repeat: no-repeat;
+    background-position: center;
   }
+
+  &__submit:hover {
+    background-color: #a27a28;
+  }
+
 }

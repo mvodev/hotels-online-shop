@@ -32,7 +32,7 @@ const Form = (props: EmailFormProps) => {
     <form className={`form ${classNameFormModificators}`} action={action}>
       {input}
       <button className="form__submit" type="submit">
-        <img className="form__img" src={ type==='email' ? arrowUrl : searchUrl } alt={type === 'email' ? 'arrow image' : 'search image'} />
+        {/* <img className="form__img" src={ type==='email' ? arrowUrl : searchUrl } alt={type === 'email' ? 'arrow image' : 'search image'} /> */}
       </button>
     </form>
   )
