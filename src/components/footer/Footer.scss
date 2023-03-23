@@ -7,11 +7,11 @@
   max-width: $max-width;
   width: 100%;
   background-color: #3F4E65;
-  padding-left: 277px;
+  padding-left: 14.427%;
   padding-top: 71px;
   display: flex;
   flex-direction: row;
-  gap: 59px;
+  gap: 3.07%;
 
   &__description {
     max-width: 320px;
@@ -30,6 +30,11 @@
     height: 39px;
   }
 
+  &__right-side {
+    display: flex;
+    flex-direction: row;
+  }
+
   &__visa-img {
     background-image: url('../../assets/images/visa.svg');
     background-size: cover;
@@ -40,4 +45,47 @@
     background-size: cover;
   }
 
+  &__messengers {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    margin-top: 15px;
+  }
+
+  &__nav {
+    margin-right: 95px;
+  }
+
+  &__price .button {
+    margin-bottom: 20px;
+  }
+
+  &__price {
+    margin-right: 95px;
+  }
+
+  &__cards {
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+  }
+
+  &__contacts {
+    a {
+      color: white;
+      text-decoration: none;
+    }
+  }
+
+  &__work-hours {
+    margin: 5px 0;
+  }
+
+  &__address_email {
+    margin-top: 25px;
+  }
+
+  &__cards {
+    margin-top: 25px;
+  }
 }
