@@ -17,6 +17,7 @@ const MainPage = () => {
         barcode='4604049097548'
         manufacturer='Нэфис'
         brand='AOS'
+        typeOfCare='уход за руками,уход за телом'
         price='48,76'
       />
       <Footer callbackRef='mock-address-change-me' />

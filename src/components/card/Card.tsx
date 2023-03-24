@@ -11,6 +11,7 @@ export type CardTypeProps = {
   manufacturer: string,
   brand: string,
   price: string,
+  typeOfCare: string,
 }
 
 const Card = (props:CardTypeProps) => {
@@ -23,7 +24,8 @@ const Card = (props:CardTypeProps) => {
     barcode, 
     manufacturer, 
     brand,
-    price } = props;
+    price,
+    typeOfCare, } = props;
 
   return (
     <div className="card">
@@ -47,6 +49,9 @@ const Card = (props:CardTypeProps) => {
       </div>
       <div className="card__brand">
         Бренд:<i>{brand}</i>
+      </div>
+      <div className="card__care-type">
+        Тип ухода:<i>{typeOfCare}</i>
       </div>
       <div className="card__price-wrapper">
         <div className="card__price">
