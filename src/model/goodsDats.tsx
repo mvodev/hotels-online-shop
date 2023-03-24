@@ -17,6 +17,7 @@ export const goodsData:Array<CardTypeProps> = [
     manufacturer: 'Нэфис',
     brand: 'AOS',
     price: '48,76',
+    typeOfCare: 'уход за руками,уход за телом',
   },
   {
     imgUrl: image2Url,
@@ -28,6 +29,7 @@ export const goodsData:Array<CardTypeProps> = [
     manufacturer: 'Нэфис',
     brand: 'AOS',
     price: '48,76',
+    typeOfCare: 'уход за руками,уход за телом',
   },
   {
     imgUrl: image3Url,
@@ -39,6 +41,7 @@ export const goodsData:Array<CardTypeProps> = [
     manufacturer: 'Нэфис',
     brand: 'AOS',
     price: '48,76',
+    typeOfCare: 'уход за телом'
   },
   {
     imgUrl: image1Url,
@@ -50,6 +53,7 @@ export const goodsData:Array<CardTypeProps> = [
     manufacturer: 'Нэфис',
     brand: 'AOS',
     price: '48,76',
+    typeOfCare: 'уход за руками'
   },
   {
     imgUrl: image2Url,
@@ -61,6 +65,7 @@ export const goodsData:Array<CardTypeProps> = [
     manufacturer: 'Нэфис',
     brand: 'AOS',
     price: '48,76',
+    typeOfCare: 'уход за руками,уход за телом',
   },
   {
     imgUrl: image3Url,
@@ -72,6 +77,7 @@ export const goodsData:Array<CardTypeProps> = [
     manufacturer: 'Нэфис',
     brand: 'AOS',
     price: '48,76',
+    typeOfCare: 'уход за руками,уход за телом',
   },
   {
     imgUrl: image1Url,
@@ -83,6 +89,7 @@ export const goodsData:Array<CardTypeProps> = [
     manufacturer: 'Нэфис',
     brand: 'AOS',
     price: '48,76',
+    typeOfCare: 'уход за руками',
   },
   {
     imgUrl: image2Url,
@@ -94,6 +101,7 @@ export const goodsData:Array<CardTypeProps> = [
     manufacturer: 'Нэфис',
     brand: 'AOS',
     price: '48,76',
+    typeOfCare: 'уход за руками,уход за телом',
   },
   {
     imgUrl: image3Url,
@@ -105,6 +113,7 @@ export const goodsData:Array<CardTypeProps> = [
     manufacturer: 'Нэфис',
     brand: 'AOS',
     price: '48,76',
+    typeOfCare: 'уход за телом',
   },
   {
     imgUrl: image1Url,
@@ -116,6 +125,7 @@ export const goodsData:Array<CardTypeProps> = [
     manufacturer: 'Нэфис',
     brand: 'AOS',
     price: '48,76',
+    typeOfCare: 'уход за руками,уход за телом',
   },
   {
     imgUrl: image2Url,
@@ -127,6 +137,7 @@ export const goodsData:Array<CardTypeProps> = [
     manufacturer: 'Нэфис',
     brand: 'AOS',
     price: '48,76',
+    typeOfCare: 'уход за руками,уход за телом',
   },
   {
     imgUrl: image3Url,
@@ -138,6 +149,7 @@ export const goodsData:Array<CardTypeProps> = [
     manufacturer: 'Нэфис',
     brand: 'AOS',
     price: '48,76',
+    typeOfCare: 'уход за руками',
   },
   {
     imgUrl: image1Url,
@@ -149,6 +161,7 @@ export const goodsData:Array<CardTypeProps> = [
     manufacturer: 'Нэфис',
     brand: 'AOS',
     price: '48,76',
+    typeOfCare: 'уход за руками',
   },
   {
     imgUrl: image2Url,
@@ -160,6 +173,7 @@ export const goodsData:Array<CardTypeProps> = [
     manufacturer: 'Нэфис',
     brand: 'AOS',
     price: '48,76',
+    typeOfCare: 'уход за руками',
   },
   {
     imgUrl: image3Url,
@@ -171,6 +185,7 @@ export const goodsData:Array<CardTypeProps> = [
     manufacturer: 'Нэфис',
     brand: 'AOS',
     price: '48,76',
+    typeOfCare: 'уход за телом',
   },
   {
     imgUrl: image1Url,
@@ -182,6 +197,7 @@ export const goodsData:Array<CardTypeProps> = [
     manufacturer: 'Нэфис',
     brand: 'AOS',
     price: '48,76',
+    typeOfCare: 'уход за телом',
   },
   {
     imgUrl: image2Url,
@@ -193,6 +209,7 @@ export const goodsData:Array<CardTypeProps> = [
     manufacturer: 'Нэфис',
     brand: 'AOS',
     price: '48,76',
+    typeOfCare: 'уход за руками,уход за телом',
   },
   {
     imgUrl: image3Url,
@@ -204,5 +221,6 @@ export const goodsData:Array<CardTypeProps> = [
     manufacturer: 'Нэфис',
     brand: 'AOS',
     price: '48,76',
+    typeOfCare: 'уход за руками',
   },
 ]
