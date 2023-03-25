@@ -11,7 +11,7 @@ export type ButtonProps = {
 }
 
 const Button = (props:ButtonProps & React.ButtonHTMLAttributes<HTMLButtonElement>) => {
-  const { buttonType='common', text, href='mock-ddress-change-me.pdf' } = props;
+  const { buttonType='common', text, href='mock-ddress-change-me.pdf',...rest } = props;
   let imgSrc = '';
   let alt = '';
   let buttonBody = <></>;
@@ -47,7 +47,7 @@ const Button = (props:ButtonProps & React.ButtonHTMLAttributes<HTMLButtonElement
     </>
   }
   return (
-    <button className={`button button_${buttonType}`} {...props} >
+    <button className={`button button_${buttonType}`} {...rest} >
       {buttonBody}
     </button>
   )
