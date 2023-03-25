@@ -47,7 +47,7 @@ const Button = (props:ButtonProps & React.ButtonHTMLAttributes<HTMLButtonElement
     </>
   }
   return (
-    <button className={`button button_${buttonType}`}>
+    <button className={`button button_${buttonType}`} {...props} >
       {buttonBody}
     </button>
   )
