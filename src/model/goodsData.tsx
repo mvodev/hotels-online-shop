@@ -6,7 +6,7 @@ import boxImgUrl from '../assets/images/box.svg';
 
 import { CardTypeProps } from '../components/card/Card';
 
-export const goodsData:Array<CardTypeProps> = [
+const goodsData:Array<CardTypeProps> = [
   {
     imgUrl: image1Url,
     title: 'AOS',
@@ -16,7 +16,7 @@ export const goodsData:Array<CardTypeProps> = [
     barcode: '4604049097548',
     manufacturer: 'Нэфис',
     brand: 'AOS',
-    price: '48,76',
+    price: '8,7',
     typeOfCare: 'уход за руками,уход за телом',
   },
   {
@@ -28,7 +28,7 @@ export const goodsData:Array<CardTypeProps> = [
     barcode: '4604049097549',
     manufacturer: 'Нэфис',
     brand: 'AOS',
-    price: '48,76',
+    price: '28,6',
     typeOfCare: 'уход за руками,уход за телом',
   },
   {
@@ -136,7 +136,7 @@ export const goodsData:Array<CardTypeProps> = [
     barcode: '4604049097558',
     manufacturer: 'Нэфис',
     brand: 'AOS',
-    price: '48,76',
+    price: '49,76',
     typeOfCare: 'уход за руками,уход за телом',
   },
   {
@@ -148,7 +148,7 @@ export const goodsData:Array<CardTypeProps> = [
     barcode: '4604049097559',
     manufacturer: 'Нэфис',
     brand: 'AOS',
-    price: '48,76',
+    price: '53,76',
     typeOfCare: 'уход за руками',
   },
   {
@@ -160,7 +160,7 @@ export const goodsData:Array<CardTypeProps> = [
     barcode: '4604049097560',
     manufacturer: 'Нэфис',
     brand: 'AOS',
-    price: '48,76',
+    price: '78,76',
     typeOfCare: 'уход за руками',
   },
   {
@@ -172,7 +172,7 @@ export const goodsData:Array<CardTypeProps> = [
     barcode: '4604049097561',
     manufacturer: 'Нэфис',
     brand: 'AOS',
-    price: '48,76',
+    price: '65,76',
     typeOfCare: 'уход за руками',
   },
   {
@@ -184,7 +184,7 @@ export const goodsData:Array<CardTypeProps> = [
     barcode: '4604049097562',
     manufacturer: 'Нэфис',
     brand: 'AOS',
-    price: '48,76',
+    price: '122,76',
     typeOfCare: 'уход за телом',
   },
   {
@@ -196,7 +196,7 @@ export const goodsData:Array<CardTypeProps> = [
     barcode: '4604049097563',
     manufacturer: 'Нэфис',
     brand: 'AOS',
-    price: '48,76',
+    price: '18,76',
     typeOfCare: 'уход за телом',
   },
   {
@@ -208,7 +208,7 @@ export const goodsData:Array<CardTypeProps> = [
     barcode: '4604049097564',
     manufacturer: 'Нэфис',
     brand: 'AOS',
-    price: '48,76',
+    price: '48',
     typeOfCare: 'уход за руками,уход за телом',
   },
   {
@@ -220,7 +220,9 @@ export const goodsData:Array<CardTypeProps> = [
     barcode: '4604049097565',
     manufacturer: 'Нэфис',
     brand: 'AOS',
-    price: '48,76',
+    price: '48,7',
     typeOfCare: 'уход за руками',
   },
-]
+];
+
+export default goodsData;
