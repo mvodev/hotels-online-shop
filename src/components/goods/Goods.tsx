@@ -2,9 +2,13 @@ import './Goods.scss';
 import goodsData from '../../model/goodsData';
 import SelectCardOrder from '../select-card-order/SelectCardOrder';
 import Card from '../card/Card';
-import { ChangeEvent, PointerEvent, useState } from 'react';
+import { ChangeEvent, PointerEvent, useEffect, useState } from 'react';
 import ReactPaginate from 'react-paginate';
 import Filter from '../filter/Filter';
+import { useAppSelector } from '../../redux/hooks';
+import {
+  selectFilter,
+} from '../../redux/filterSlice';
 
 export type GoodsPropsType = {
   title:string,
@@ -19,6 +23,20 @@ const Goods = (props:GoodsPropsType) => {
   const endOffset = itemOffset + GOODS_PER_PAGE;
   const currentItems = cards.slice(itemOffset, endOffset);
   const pageCount = Math.ceil(cards.length / GOODS_PER_PAGE);
+  const filtersState = useAppSelector(selectFilter);
+  useEffect(()=>{
+    if (filtersState.length === 0) {
+      setCards(goodsData.sort(
+          (a, b) => a.title > b.title ? 1 : -1))
+    } else {
+      let filteredCards = [...cards];
+      filtersState.forEach(filterState=>{
+        filteredCards = filteredCards.filter(card=>card.typeOfCare.includes(filterState));
+      })
+      setCards(filteredCards);
+    }
+
+  },[filtersState])
 
   const handlePaginationClick = (event:{selected:number}) => {
     const newOffset = (event.selected * GOODS_PER_PAGE) % cards.length;
@@ -58,9 +76,9 @@ const Goods = (props:GoodsPropsType) => {
   })
 
   const filters = Array.from(categories).map(
-    (cat,index) => {
+    (category,index) => {
     return (
-      <Filter key={index} description={cat as string} />
+      <Filter key={index} description={category as string} />
     ) 
   })
 
