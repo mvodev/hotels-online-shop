@@ -1,5 +1,22 @@
 .goods {
 
+  &__header {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 40px;
+    line-height: 120%;
+    text-transform: uppercase;
+    color: #111111;
+    width: max-content;
+  }
+
+  &__header-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
   &__wrapper {
     display: grid;
     gap: 21px;
@@ -49,7 +66,7 @@
       background: linear-gradient(90deg, rgba(255, 198, 80, 0.3) 0%, rgba(254, 202, 110, 0.3) 97.25%);
       border-radius: 50%;
     }
-    
+
   }
   
 }

@@ -5,7 +5,12 @@ import Card from '../card/Card';
 import { ChangeEvent, PointerEvent, useState } from 'react';
 import ReactPaginate from 'react-paginate';
 
-const Goods = () => {
+export type GoodsPropsType = {
+  title:string,
+}
+
+const Goods = (props:GoodsPropsType) => {
+  const {title} = props;
   const [ cards, setCards ] = useState(goodsData.sort(
           (a, b) => a.title > b.title ? 1 : -1));
   const [itemOffset, setItemOffset] = useState(0);
@@ -51,9 +56,12 @@ const Goods = () => {
 
   return (
     <div className="goods">
-      <div className="goods__select-order">
-        <span>Сортировка:</span>
-        <SelectCardOrder onChange={handleSort}/>
+      <div className="goods__header-wrapper">
+        <h2 className='goods__header'>{title}</h2>
+        <div className="goods__select-order">
+          <span>Сортировка:</span>
+          <SelectCardOrder onChange={handleSort}/>
+        </div>
       </div>
       <div className="goods__wrapper">
         {currentItems.map((good) => {

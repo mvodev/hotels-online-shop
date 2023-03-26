@@ -9,7 +9,7 @@ const MainPage = () => {
   return (
     <div className="wrapper">
       <Header callbackRef='mock-address-change-me' /> 
-      <Goods />
+      <Goods title='Косметика и гигиена'/>
       <Footer callbackRef='mock-address-change-me' />
     </div>
   )
