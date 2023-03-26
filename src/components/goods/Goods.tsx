@@ -4,6 +4,7 @@ import SelectCardOrder from '../select-card-order/SelectCardOrder';
 import Card from '../card/Card';
 import { ChangeEvent, PointerEvent, useState } from 'react';
 import ReactPaginate from 'react-paginate';
+import Filter from '../filter/Filter';
 
 export type GoodsPropsType = {
   title:string,
@@ -21,9 +22,6 @@ const Goods = (props:GoodsPropsType) => {
 
   const handlePaginationClick = (event:{selected:number}) => {
     const newOffset = (event.selected * GOODS_PER_PAGE) % cards.length;
-        console.log(
-      `User requested page number ${event.selected}, which is offset ${newOffset}`
-    );
     setItemOffset(newOffset);
   };
 
@@ -48,11 +46,23 @@ const Goods = (props:GoodsPropsType) => {
       case 'priceDecrease': 
         arrayOfCardsToSort.sort(
           (a, b) => Number(a.price.replace(',','.')) < Number(b.price.replace(',','.')) ? 1 : -1);
-        console.log(arrayOfCardsToSort);
         setCards(arrayOfCardsToSort);
         break;
     }
   }
+
+  const categories = new Set();
+
+  goodsData.forEach((product) => {
+    product.typeOfCare.split(',').forEach(productTypeOfCare=>categories.add(productTypeOfCare))
+  })
+
+  const filters = Array.from(categories).map(
+    (cat,index) => {
+    return (
+      <Filter key={index} description={cat as string} />
+    ) 
+  })
 
   return (
     <div className="goods">
@@ -63,7 +73,18 @@ const Goods = (props:GoodsPropsType) => {
           <SelectCardOrder onChange={handleSort}/>
         </div>
       </div>
-      <div className="goods__wrapper">
+      <div className="goods__filters">
+        {filters.map((filter,index) => {
+          return <div key={index} className="goods__filter-wrapper">{filter}</div>
+        })}
+      </div>
+      <main className='goods__main'>
+        <aside className='goods__params'>
+          <h3 className='goods__params-header'>Подбор по параметрам</h3>
+          <h4>Цена &#8376;</h4>
+          {filters}
+        </aside>
+        <div className="goods__wrapper">
         {currentItems.map((good) => {
           return <Card 
             key={good.barcode}
@@ -80,6 +101,7 @@ const Goods = (props:GoodsPropsType) => {
           />
         })}
       </div>
+      </main>
       <div className="goods__pagination">
         <ReactPaginate
         breakLabel="..."

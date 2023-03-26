@@ -68,5 +68,35 @@
     }
 
   }
+
+  &__filters {
+    display: flex;
+    flex-direction: row;
+    gap: 11px;
+  }
+
+  &__filter-wrapper {
+    width: 100px;
+    height: 70px;
+    padding: 18px 19px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__params-header {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 150%;
+    color: #111111;
+  }
+
+  &__main {
+    display: flex;
+    flex-direction: row;
+  }
   
 }
