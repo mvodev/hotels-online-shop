@@ -223,6 +223,18 @@ const goodsData:Array<CardTypeProps> = [
     price: '48,7',
     typeOfCare: 'уход за руками',
   },
+  {
+    imgUrl: image1Url,
+    title: 'AOS',
+    description: 'средство для мытья посуды Crystal',
+    quantity: '450 мл',
+    quantityImg:bottleImgUrl,
+    barcode: '4604049097566',
+    manufacturer: 'Нэфис',
+    brand: 'AOS',
+    price: '43,79',
+    typeOfCare: 'уход за руками,уход за телом',
+  },
 ];
 
 export default goodsData;

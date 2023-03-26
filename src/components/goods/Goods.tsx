@@ -1,11 +1,26 @@
-import './Cards.scss';
+import './Goods.scss';
 import goodsData from '../../model/goodsData';
 import SelectCardOrder from '../select-card-order/SelectCardOrder';
 import Card from '../card/Card';
-import { ChangeEvent, useState } from 'react';
+import { ChangeEvent, PointerEvent, useState } from 'react';
+import ReactPaginate from 'react-paginate';
 
-const Cards = () => {
-  const [cards,setCards] = useState(goodsData);
+const Goods = () => {
+  const [ cards, setCards ] = useState(goodsData.sort(
+          (a, b) => a.title > b.title ? 1 : -1));
+  const [itemOffset, setItemOffset] = useState(0);
+  const GOODS_PER_PAGE = 15;
+  const endOffset = itemOffset + GOODS_PER_PAGE;
+  const currentItems = cards.slice(itemOffset, endOffset);
+  const pageCount = Math.ceil(cards.length / GOODS_PER_PAGE);
+
+  const handlePaginationClick = (event:{selected:number}) => {
+    const newOffset = (event.selected * GOODS_PER_PAGE) % cards.length;
+        console.log(
+      `User requested page number ${event.selected}, which is offset ${newOffset}`
+    );
+    setItemOffset(newOffset);
+  };
 
   const handleSort = (event:ChangeEvent<HTMLSelectElement>) =>{
     const arrayOfCardsToSort = [...cards];
@@ -35,13 +50,13 @@ const Cards = () => {
   }
 
   return (
-    <div className="cards">
-      <div className="cards__select-order">
+    <div className="goods">
+      <div className="goods__select-order">
         <span>Сортировка:</span>
         <SelectCardOrder onChange={handleSort}/>
       </div>
-      <div className="cards__wrapper">
-        {cards.map((good) => {
+      <div className="goods__wrapper">
+        {currentItems.map((good) => {
           return <Card 
             key={good.barcode}
             imgUrl={good.imgUrl} 
@@ -57,8 +72,19 @@ const Cards = () => {
           />
         })}
       </div>
+      <div className="goods__pagination">
+        <ReactPaginate
+        breakLabel="..."
+        nextLabel=">"
+        onPageChange={handlePaginationClick}
+        pageRangeDisplayed={GOODS_PER_PAGE}
+        pageCount={pageCount}
+        previousLabel="<"
+        renderOnZeroPageCount={() => null}
+      />
+      </div>
     </div>
   )
 }
 
-export default Cards;
+export default Goods;
