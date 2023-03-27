@@ -7,16 +7,17 @@ import './index.scss';
 import {store} from './redux/store';
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Cards from './pages/Cards';
+import NotFound from './pages/NotFound';
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
     <Provider store={store}>
       <BrowserRouter>
         <h1>Тестовое задание HOTELS.RU интернет магазин</h1>
-        {/* <MainPage /> */}
         <Routes>
           <Route path='/' element={<MainPage/>} />
-          <Route path='/cards/:cardsId' element={<Cards/>} />
+          <Route path='/cards/:id' element={<Cards/>} />
+          <Route path='*' element={<NotFound />}/>
         </Routes>
       </BrowserRouter>
     </Provider>
