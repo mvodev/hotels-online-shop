@@ -2,6 +2,7 @@ import { useAppDispatch } from '../../redux/hooks';
 import Button from '../button/Button';
 import { addToCart } from '../../redux/cartSlice';
 import './Card.scss';
+import { Link } from "react-router-dom";
 
 export type CardTypeProps = {
   imgUrl:string,
@@ -35,9 +36,12 @@ const Card = (props:CardTypeProps) => {
   const dispatch = useAppDispatch();
 
   return (
+    
     <div className="card">
       <div className="card__img">
+        <Link to={`/cards/${barcode}`}>
         <img src={ imgUrl } alt="image of good" />
+        </Link>
       </div>
       <div className="card__quantity">
         <div className="card__quantity-img">
@@ -46,7 +50,9 @@ const Card = (props:CardTypeProps) => {
         <div className="card__quantity-size">{quantity}</div>
       </div>
       <div className="card__description">
+        <Link to={`/cards/${barcode}`}>
         <i>{title + ' '}</i>{description}
+        </Link>
       </div>
       <div className="card__barcode">
         Штрихкод:<i>{barcode}</i>
