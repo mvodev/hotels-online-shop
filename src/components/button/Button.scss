@@ -54,10 +54,12 @@
 
   &_download {
     width: 192px;
+    flex: 0 0 192px;
   }
 
   &_download-wide {
     width: 200px;
+    flex: 0 0 200px;
   }
 
   &_download-extra-wide {
