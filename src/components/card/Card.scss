@@ -16,12 +16,13 @@
   &__description {
     max-width: 282px;
     word-wrap: break-word;
+    font-size: 16px;
+
     i {
-      font-size: 16px;
       font-weight: 700;
       line-height: 21px;
     }
-    font-size: 16px;
+
     font-weight: 500;
     line-height: 21px;
   }
@@ -38,7 +39,8 @@
     margin-bottom: 20px;
   }
 
-  &__barcode,&__manufacturer {
+  &__barcode,
+  &__manufacturer {
     margin-bottom: 5px;
   }
 
