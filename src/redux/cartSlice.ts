@@ -13,13 +13,13 @@ export const cartSlice = createSlice({
   name: 'cart',
   initialState,
   reducers: {
-    add: (state,action: PayloadAction<{barcode:string,quantity:number}>) => {
+    addToCart: (state,action: PayloadAction<{barcode:string,quantity:number}>) => {
       if (state.cart.has(action.payload.barcode)) {
         const value = state.cart.get(action.payload.barcode);
         if (value) state.cart.set(action.payload.barcode,value);
       } else state.cart.set(action.payload.barcode,action.payload.quantity)
     },
-    remove: (state,action: PayloadAction<{barcode:string,quantity:number}>)=> {
+    removeFromCart: (state,action: PayloadAction<{barcode:string,quantity:number}>)=> {
       if (state.cart.has(action.payload.barcode)) {
         const value = state.cart.get(action.payload.barcode);
         if (value && value >1) state.cart.set(action.payload.barcode,value-1);
@@ -28,7 +28,7 @@ export const cartSlice = createSlice({
   },
 });
 
-export const { add,remove } = cartSlice.actions;
+export const { addToCart,removeFromCart } = cartSlice.actions;
 
 export const selectCart = (state: RootState) => state.cart.cart;
 
