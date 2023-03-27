@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { useAppDispatch, useAppSelector } from '../../redux/hooks';
 import {
   selectFilter,
