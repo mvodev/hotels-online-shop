@@ -1,4 +1,6 @@
+import { useAppDispatch } from '../../redux/hooks';
 import Button from '../button/Button';
+import { addToCart } from '../../redux/cartSlice';
 import './Card.scss';
 
 export type CardTypeProps = {
@@ -26,6 +28,11 @@ const Card = (props:CardTypeProps) => {
     brand,
     price,
     typeOfCare, } = props;
+
+  const handlerCart = () => {
+    dispatch(addToCart({barcode}));
+  }
+  const dispatch = useAppDispatch();
 
   return (
     <div className="card">
@@ -57,7 +64,7 @@ const Card = (props:CardTypeProps) => {
         <div className="card__price">
           {price}&#8376;
         </div>
-        <Button buttonType='cart' text=' В КОРЗИНУ'/>
+        <Button buttonType='cart' text=' В КОРЗИНУ' onPointerDown={handlerCart}/>
       </div>
     </div>
   )

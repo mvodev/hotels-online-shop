@@ -2,28 +2,25 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { RootState } from './store';
 
 export interface CartState {
-  cart: Map<string,number>,
+  cart: Array<string>,
 }
 
 const initialState: CartState = {
-  cart: new Map()
+  cart: []
 };
 
 export const cartSlice = createSlice({
   name: 'cart',
   initialState,
   reducers: {
-    addToCart: (state,action: PayloadAction<{barcode:string,quantity:number}>) => {
-      if (state.cart.has(action.payload.barcode)) {
-        const value = state.cart.get(action.payload.barcode);
-        if (value) state.cart.set(action.payload.barcode,value);
-      } else state.cart.set(action.payload.barcode,action.payload.quantity)
+    addToCart: (state,action: PayloadAction<{barcode:string}>) => {
+      state.cart.push(action.payload.barcode)
     },
-    removeFromCart: (state,action: PayloadAction<{barcode:string,quantity:number}>)=> {
-      if (state.cart.has(action.payload.barcode)) {
-        const value = state.cart.get(action.payload.barcode);
-        if (value && value >1) state.cart.set(action.payload.barcode,value-1);
-      } else state.cart.delete(action.payload.barcode);
+    removeFromCart: (state,action: PayloadAction<{barcode:string}>)=> {
+      const index = state.cart.indexOf(action.payload.barcode);
+      if (index >-1) {
+        state.cart.slice(index,1);
+      }
     }
   },
 });
