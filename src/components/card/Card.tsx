@@ -32,11 +32,11 @@ const Card = (props:CardTypeProps) => {
       <div className="card__img">
         <img src={ imgUrl } alt="image of good" />
       </div>
-      <div className="cards__quantity">
-        <div className="cards__quantity-img">
+      <div className="card__quantity">
+        <div className="card__quantity-img">
           <img src={quantityImg} alt="img" />
         </div>
-        <div className="cards__quantity-size">{quantity}</div>
+        <div className="card__quantity-size">{quantity}</div>
       </div>
       <div className="card__description">
         <i>{title + ' '}</i>{description}

@@ -17,22 +17,22 @@ const DiapasonForm = (props:DiapasonFormTypeProps) => {
     placeholder2,
     handleSubmit
   } = props;
-  const [ input1, setInput1] = useState(0);
-  const [ input2, setInput2] = useState(0);
-  const [error,setError] = useState('');
+  const [ minValue, setMinValue ] = useState(0);
+  const [ maxValue, setMaxValue ] = useState(0);
+  const [ error, setError ] = useState('');
 
   const handleChange = (event:React.ChangeEvent<HTMLInputElement>) => { 
     const inputNumber = event.target.name;
     setError('');
     if (Number(event.target.value) < 0) {
       setError('Введите положительное значение');
-    } else if ((inputNumber === 'first' && Number(event.target.value) > input2)||
-    ((inputNumber === 'second' && Number(event.target.value) < input1))) {
+    } else if ((inputNumber === 'first' && Number(event.target.value) > maxValue)||
+    ((inputNumber === 'second' && Number(event.target.value) < minValue))) {
       setError('Некорректное значение диапазона');
     } else {
       if (inputNumber === 'first') {
-        setInput1(Number(event.target.value));
-      } else setInput2(Number(event.target.value));
+        setMinValue(Number(event.target.value));
+      } else setMaxValue(Number(event.target.value));
       setError('');
     }
   }
@@ -46,9 +46,9 @@ const DiapasonForm = (props:DiapasonFormTypeProps) => {
     >
       <h3 className='diapason__header'>{diapasonTytle +' '}<i>{diapasonUnits}</i></h3>
       <div className="diapason__input-wrapper">
-        <input onChange={handleChange} value={input1} name='first' type="number" className='diapason__input diapason__input_first' placeholder={placeholder1} required/>
+        <input onChange={handleChange} value={minValue} name='first' type="number" className='diapason__input diapason__input_first' placeholder={placeholder1} required/>
         <span>-</span>
-        <input value={input2} onChange={handleChange} name='second' type="number" className='diapason__input diapason__input_second' placeholder={placeholder2} required/>
+        <input value={maxValue} onChange={handleChange} name='second' type="number" className='diapason__input diapason__input_second' placeholder={placeholder2} required/>
         <button type='submit'></button>
       </div>
       <span className='diapason__error'>{error}</span>
