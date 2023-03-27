@@ -1,7 +1,7 @@
 import './Goods.scss';
 import goodsData from '../../model/goodsData';
 import SelectCardOrder from '../select-card-order/SelectCardOrder';
-import Card from '../card/Card';
+import Card, { CardTypeProps } from '../card/Card';
 import { ChangeEvent, PointerEvent, useEffect, useState } from 'react';
 import ReactPaginate from 'react-paginate';
 import Filter from '../filter/Filter';
@@ -9,6 +9,7 @@ import { useAppSelector } from '../../redux/hooks';
 import {
   selectFilter,
 } from '../../redux/filterSlice';
+import Diapason from '../diapason-form/DiapasonForm';
 
 export type GoodsPropsType = {
   title:string,
@@ -19,6 +20,12 @@ const Goods = (props:GoodsPropsType) => {
   const [ cards, setCards ] = useState(goodsData.sort(
           (a, b) => a.title > b.title ? 1 : -1));
   const [itemOffset, setItemOffset] = useState(0);
+  const [ sortBy, setSortBy ] = useState<
+    'nameIncrease'  |
+    'nameDecrease'  |
+    'priceIncrease' |
+    'priceDecrease'
+  >('nameIncrease')
   const GOODS_PER_PAGE = 15;
   const endOffset = itemOffset + GOODS_PER_PAGE;
   const currentItems = cards.slice(itemOffset, endOffset);
@@ -43,31 +50,35 @@ const Goods = (props:GoodsPropsType) => {
     setItemOffset(newOffset);
   };
 
-  const handleSort = (event:ChangeEvent<HTMLSelectElement>) =>{
+  const handleSort = (event:ChangeEvent<HTMLSelectElement>) => {
     const arrayOfCardsToSort = [...cards];
-    switch(event.target.value) {
+    const sortBy = event.target.value as 'nameIncrease' | 'nameDecrease' | 'priceIncrease' | 'priceDecrease';
+    sortByParams(sortBy,arrayOfCardsToSort);
+  }
+
+  const sortByParams = (sortBy:'priceDecrease'|'priceIncrease'|'nameDecrease'|'nameIncrease', arrayToSort:Array<CardTypeProps>) => {
+    switch(sortBy) {
       case 'nameIncrease': 
-        arrayOfCardsToSort.sort(
+        arrayToSort.sort(
           (a, b) => a.title > b.title ? 1 : -1);
-        setCards(arrayOfCardsToSort);
+        setCards(arrayToSort);
         break;
       case 'nameDecrease': 
-        arrayOfCardsToSort.sort(
+        arrayToSort.sort(
           (a, b) => a.title < b.title ? 1 : -1);
-        setCards(arrayOfCardsToSort);
+        setCards(arrayToSort);
         break;
       case 'priceIncrease': 
-        arrayOfCardsToSort.sort(
+        arrayToSort.sort(
           (a, b) => Number(a.price.replace(',','.')) > Number(b.price.replace(',','.')) ? 1 : -1);
-        setCards(arrayOfCardsToSort);
+        setCards(arrayToSort);
         break;
       case 'priceDecrease': 
-        arrayOfCardsToSort.sort(
+        arrayToSort.sort(
           (a, b) => Number(a.price.replace(',','.')) < Number(b.price.replace(',','.')) ? 1 : -1);
-        setCards(arrayOfCardsToSort);
+        setCards(arrayToSort);
         break;
-    }
-  }
+    }}
 
   const categories = new Set();
 
@@ -81,6 +92,18 @@ const Goods = (props:GoodsPropsType) => {
       <Filter key={index} description={category as string} />
     ) 
   })
+
+  const handleFormDiapason = (event:React.FormEvent<HTMLFormElement>)=>{
+    event.preventDefault();
+    const formData = new FormData(event.target as HTMLFormElement);
+    const input1 = formData.get('first');
+    const input2 = formData.get('second');
+    // if (Number(input1) === 0 && Number(input2) === 0) {
+
+    // }
+    console.log(input1);
+    console.log(input2);
+  }
 
   return (
     <div className="goods">
@@ -99,7 +122,13 @@ const Goods = (props:GoodsPropsType) => {
       <main className='goods__main'>
         <aside className='goods__params'>
           <h3 className='goods__params-header'>Подбор по параметрам</h3>
-          <h4>Цена &#8376;</h4>
+          <Diapason 
+            placeholder1='0' 
+            placeholder2='10000' 
+            diapasonTytle='Цена' 
+            diapasonUnits='&#8376;'
+            handleSubmit={handleFormDiapason}
+            />
           {filters}
         </aside>
         <div className="goods__wrapper">
@@ -134,5 +163,6 @@ const Goods = (props:GoodsPropsType) => {
     </div>
   )
 }
+
 
 export default Goods;
