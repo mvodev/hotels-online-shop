@@ -15,6 +15,7 @@ export type CardTypeProps = {
   brand: string,
   price: string,
   typeOfCare: string,
+  fullDescription: string,
 }
 
 const Card = (props:CardTypeProps) => {
@@ -37,15 +38,15 @@ const Card = (props:CardTypeProps) => {
   }
 
   return (
-    <div className="card">
+    <article className="card">
       <div className="card__img">
         <Link to={`/cards/${barcode}`}>
-        <img src={ imgUrl } alt="image of good" />
+        <img src={ imgUrl } alt="product image" />
         </Link>
       </div>
       <div className="card__quantity">
         <div className="card__quantity-img">
-          <img src={quantityImg} alt="img" />
+          <img src={quantityImg} alt="container image" />
         </div>
         <div className="card__quantity-size">{quantity}</div>
       </div>
@@ -72,7 +73,7 @@ const Card = (props:CardTypeProps) => {
         </div>
         <Button buttonType='cart' text=' В КОРЗИНУ' onPointerDown={handlerCart}/>
       </div>
-    </div>
+    </article>
   )
 }
 
