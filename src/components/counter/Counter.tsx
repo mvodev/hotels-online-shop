@@ -4,11 +4,12 @@ import './Counter.scss';
 
 export type CounterPropsType = {
   handleClick: (counter:number)=>void,
+  initialCounter?: number
 }
 
 const Counter = (props:CounterPropsType) => {
-  const { handleClick } = props;
-  const [counter,setCounter] = useState(0);
+  const { handleClick,initialCounter = 0 } = props;
+  const [counter,setCounter] = useState(initialCounter);
 
   const handleCounter = (event:React.PointerEvent<HTMLButtonElement>) => {
     const isButtonMinusClicked = event.currentTarget.classList.contains('counter__button_minus');
