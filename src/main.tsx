@@ -8,6 +8,7 @@ import {store} from './redux/store';
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import ProductPage from './pages/ProductPage';
 import NotFound from './pages/NotFound';
+import CartPage from './pages/CartPage';
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
@@ -17,6 +18,7 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
         <Routes>
           <Route path='/' element={<MainPage/>} />
           <Route path='/cards/:id' element={<ProductPage/>} />
+          <Route path='/cart' element={<CartPage/>} />
           <Route path='*' element={<NotFound />}/>
         </Routes>
       </BrowserRouter>

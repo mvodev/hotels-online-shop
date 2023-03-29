@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useParams } from "react-router";
 import { Link } from "react-router-dom";
+import BreadCrumbs from "../components/bread-crumbs/BreadCrumbs";
 import Button from "../components/button/Button";
 import Counter from "../components/counter/Counter";
 import Header from "../components/header/Header";
@@ -25,11 +26,11 @@ const ProductPage = () => {
     <div className="wrapper">
       <Header callbackRef="https://mock-address-change-me"/>
       <main className="cards">
-        <div className="cards__bread-crumbs">
-          <Link to={'/'}>Главная</Link>
-          <Link to={'/'}>Каталог</Link>
-          <span>{productData?.title}{productData?.description}{productData?.quantity}</span>
-        </div>
+        <BreadCrumbs links={[
+          {link:'/',name:'Главная'},
+          {link:'/',name:'Каталог'},
+          {link: '/',name:`${productData?.title}${productData?.description}${productData?.quantity}`,actual:true}
+        ]}/>
         <div className="cards__wrapper">
           <div className="cards__left-side">
             <div className="cards__img">

@@ -1,7 +1,18 @@
 .bread-crumbs {
   display: flex;
   gap: 20px;
-  a {
+  font-family: 'Inter';
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 17px;
+
+  &__link {
     text-decoration: none;
+    color: #3F4E65;
+    cursor: pointer;
+    &_current {
+      opacity: .5;
+      cursor: auto;
+    }
   }
 }
