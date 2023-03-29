@@ -18,6 +18,7 @@ const goodsData:Array<CardTypeProps> = [
     brand: 'AOS',
     price: '8,7',
     typeOfCare: 'уход за руками,уход за телом',
+    fullDescription: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia consequuntur quae reiciendis consequatur beatae delectus distinctio sapiente hic ab reprehenderit, provident animi dolorum quasi voluptate impedit. Ut cum quia deserunt.'
   },
   {
     imgUrl: image2Url,
@@ -30,6 +31,7 @@ const goodsData:Array<CardTypeProps> = [
     brand: 'AOS',
     price: '28,6',
     typeOfCare: 'уход за руками,уход за телом',
+    fullDescription:'Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia consequuntur quae reiciendis consequatur beatae delectus distinctio sapiente hic ab reprehenderit, provident animi dolorum quasi voluptate impedit. Ut cum quia deserunt.',
   },
   {
     imgUrl: image3Url,
@@ -41,7 +43,8 @@ const goodsData:Array<CardTypeProps> = [
     manufacturer: 'Нэфис',
     brand: 'AOS',
     price: '48,76',
-    typeOfCare: 'уход за телом'
+    typeOfCare: 'уход за телом',
+    fullDescription:'Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia consequuntur quae reiciendis consequatur beatae delectus distinctio sapiente hic ab reprehenderit, provident animi dolorum quasi voluptate impedit. Ut cum quia deserunt.',
   },
   {
     imgUrl: image1Url,
@@ -53,7 +56,8 @@ const goodsData:Array<CardTypeProps> = [
     manufacturer: 'Нэфис',
     brand: 'AOS',
     price: '48,76',
-    typeOfCare: 'уход за руками'
+    typeOfCare: 'уход за руками',
+    fullDescription:'Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia consequuntur quae reiciendis consequatur beatae delectus distinctio sapiente hic ab reprehenderit, provident animi dolorum quasi voluptate impedit. Ut cum quia deserunt.',
   },
   {
     imgUrl: image2Url,
@@ -66,6 +70,7 @@ const goodsData:Array<CardTypeProps> = [
     brand: 'AOS',
     price: '48,76',
     typeOfCare: 'уход за руками,уход за телом',
+    fullDescription:'Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia consequuntur quae reiciendis consequatur beatae delectus distinctio sapiente hic ab reprehenderit, provident animi dolorum quasi voluptate impedit. Ut cum quia deserunt.',
   },
   {
     imgUrl: image3Url,
@@ -78,6 +83,7 @@ const goodsData:Array<CardTypeProps> = [
     brand: 'AOS',
     price: '48,76',
     typeOfCare: 'уход за руками,уход за телом',
+    fullDescription:'Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia consequuntur quae reiciendis consequatur beatae delectus distinctio sapiente hic ab reprehenderit, provident animi dolorum quasi voluptate impedit. Ut cum quia deserunt.',
   },
   {
     imgUrl: image1Url,
@@ -90,6 +96,7 @@ const goodsData:Array<CardTypeProps> = [
     brand: 'AOS',
     price: '48,76',
     typeOfCare: 'уход за руками',
+    fullDescription:'Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia consequuntur quae reiciendis consequatur beatae delectus distinctio sapiente hic ab reprehenderit, provident animi dolorum quasi voluptate impedit. Ut cum quia deserunt.',
   },
   {
     imgUrl: image2Url,
@@ -102,6 +109,7 @@ const goodsData:Array<CardTypeProps> = [
     brand: 'AOS',
     price: '48,76',
     typeOfCare: 'уход за руками,уход за телом',
+    fullDescription:'Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia consequuntur quae reiciendis consequatur beatae delectus distinctio sapiente hic ab reprehenderit, provident animi dolorum quasi voluptate impedit. Ut cum quia deserunt.',
   },
   {
     imgUrl: image3Url,
@@ -114,6 +122,7 @@ const goodsData:Array<CardTypeProps> = [
     brand: 'AOS',
     price: '48,76',
     typeOfCare: 'уход за телом',
+    fullDescription:'Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia consequuntur quae reiciendis consequatur beatae delectus distinctio sapiente hic ab reprehenderit, provident animi dolorum quasi voluptate impedit. Ut cum quia deserunt.',
   },
   {
     imgUrl: image1Url,
@@ -126,6 +135,7 @@ const goodsData:Array<CardTypeProps> = [
     brand: 'AOS',
     price: '48,76',
     typeOfCare: 'уход за руками,уход за телом',
+    fullDescription:'Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia consequuntur quae reiciendis consequatur beatae delectus distinctio sapiente hic ab reprehenderit, provident animi dolorum quasi voluptate impedit. Ut cum quia deserunt.',
   },
   {
     imgUrl: image2Url,
@@ -138,6 +148,7 @@ const goodsData:Array<CardTypeProps> = [
     brand: 'AOS',
     price: '49,76',
     typeOfCare: 'уход за руками,уход за телом',
+    fullDescription:'Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia consequuntur quae reiciendis consequatur beatae delectus distinctio sapiente hic ab reprehenderit, provident animi dolorum quasi voluptate impedit. Ut cum quia deserunt.',
   },
   {
     imgUrl: image3Url,
@@ -150,6 +161,7 @@ const goodsData:Array<CardTypeProps> = [
     brand: 'AOS',
     price: '53,76',
     typeOfCare: 'уход за руками',
+    fullDescription:'Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia consequuntur quae reiciendis consequatur beatae delectus distinctio sapiente hic ab reprehenderit, provident animi dolorum quasi voluptate impedit. Ut cum quia deserunt.',
   },
   {
     imgUrl: image1Url,
@@ -162,6 +174,7 @@ const goodsData:Array<CardTypeProps> = [
     brand: 'AOS',
     price: '78,76',
     typeOfCare: 'уход за руками',
+    fullDescription:'Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia consequuntur quae reiciendis consequatur beatae delectus distinctio sapiente hic ab reprehenderit, provident animi dolorum quasi voluptate impedit. Ut cum quia deserunt.',
   },
   {
     imgUrl: image2Url,
@@ -174,6 +187,7 @@ const goodsData:Array<CardTypeProps> = [
     brand: 'AOS',
     price: '65,76',
     typeOfCare: 'уход за руками',
+    fullDescription:'Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia consequuntur quae reiciendis consequatur beatae delectus distinctio sapiente hic ab reprehenderit, provident animi dolorum quasi voluptate impedit. Ut cum quia deserunt.',
   },
   {
     imgUrl: image3Url,
@@ -186,6 +200,7 @@ const goodsData:Array<CardTypeProps> = [
     brand: 'AOS',
     price: '122,76',
     typeOfCare: 'уход за телом',
+    fullDescription:'Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia consequuntur quae reiciendis consequatur beatae delectus distinctio sapiente hic ab reprehenderit, provident animi dolorum quasi voluptate impedit. Ut cum quia deserunt.',
   },
   {
     imgUrl: image1Url,
@@ -198,6 +213,7 @@ const goodsData:Array<CardTypeProps> = [
     brand: 'AOS',
     price: '18,76',
     typeOfCare: 'уход за телом',
+    fullDescription:'Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia consequuntur quae reiciendis consequatur beatae delectus distinctio sapiente hic ab reprehenderit, provident animi dolorum quasi voluptate impedit. Ut cum quia deserunt.',
   },
   {
     imgUrl: image2Url,
@@ -210,6 +226,7 @@ const goodsData:Array<CardTypeProps> = [
     brand: 'AOS',
     price: '48',
     typeOfCare: 'уход за руками,уход за телом',
+    fullDescription:'Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia consequuntur quae reiciendis consequatur beatae delectus distinctio sapiente hic ab reprehenderit, provident animi dolorum quasi voluptate impedit. Ut cum quia deserunt.',
   },
   {
     imgUrl: image3Url,
@@ -222,6 +239,7 @@ const goodsData:Array<CardTypeProps> = [
     brand: 'AOS',
     price: '48,7',
     typeOfCare: 'уход за руками',
+    fullDescription:'Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia consequuntur quae reiciendis consequatur beatae delectus distinctio sapiente hic ab reprehenderit, provident animi dolorum quasi voluptate impedit. Ut cum quia deserunt.',
   },
   {
     imgUrl: image1Url,
@@ -234,6 +252,7 @@ const goodsData:Array<CardTypeProps> = [
     brand: 'AOS',
     price: '43,79',
     typeOfCare: 'уход за руками,уход за телом',
+    fullDescription:'Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia consequuntur quae reiciendis consequatur beatae delectus distinctio sapiente hic ab reprehenderit, provident animi dolorum quasi voluptate impedit. Ut cum quia deserunt.',
   },
 ];
 
