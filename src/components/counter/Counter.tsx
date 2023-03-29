@@ -4,7 +4,8 @@ import './Counter.scss';
 
 export type CounterPropsType = {
   handleClick: (counter:number)=>void,
-  initialCounter?: number
+  initialCounter?: number,
+  maxValue?:number,
 }
 
 const Counter = (props:CounterPropsType) => {
