@@ -7,6 +7,11 @@
   align-items: center;
   gap: 24px;
   cursor: pointer;
+  text-decoration: none;
+  a{
+    text-decoration: none;
+    color: inherit;
+  }
 
   &__img {
     width: 46px;
