@@ -10,4 +10,10 @@
     cursor: auto;
     margin: 50px auto;
   }
+
+  &__prepare {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
 }

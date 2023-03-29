@@ -3,7 +3,7 @@ import Button from '../button/Button';
 import './CounterDelete.scss';
 
 export type CounterDeletePropsType = {
-  handleClick: ()=>void,
+  handleDeleteButtonClick: (barcode:string)=>void,
   handleCounterChange:(counter:number,barcode:string)=>void
   initialCounter?: number,
   maxValue?:number,
@@ -12,10 +12,10 @@ export type CounterDeletePropsType = {
 }
 
 const CounterDelete = (props:CounterDeletePropsType) => {
-  const {initialCounter = 0,handleClick,handleCounterChange, pricePerUnit, barcode} = props;
+  const {initialCounter = 0,handleDeleteButtonClick,handleCounterChange, pricePerUnit, barcode} = props;
   const [counter,setCounter] = useState(initialCounter);
   const correctedPricePerUnit = pricePerUnit.replace(',','.');
-  const [price,setPrice] = useState(Number(correctedPricePerUnit)*initialCounter);
+  const [price,setPrice] = useState(+((Number(correctedPricePerUnit)*initialCounter).toFixed(2)));
 
   const handleCounter = (event:React.PointerEvent<HTMLButtonElement>) => {
     const isButtonMinusClicked = event.currentTarget.classList.contains('counter-delete__button_minus');
@@ -36,7 +36,7 @@ const CounterDelete = (props:CounterDeletePropsType) => {
       <div className="counter-delete__price">{price}</div>
       <Button buttonType='delete' onPointerDown={()=>{
           setCounter(0);
-          handleClick();
+          handleDeleteButtonClick(barcode);
         }}/>
     </div>
   )

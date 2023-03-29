@@ -2,16 +2,15 @@ import { CardTypeProps } from '../card/Card';
 import CounterDelete from '../counter-delete/CounterDelete';
 import './ShortCard.scss';
 
-const ShortCard = (props:CardTypeProps) => {
-  const { quantity, quantityImg, imgUrl, title, description, fullDescription, price,barcode } = props;
-  const handleDeleteButtonClick = () => {
+export type ShortCardPropsType = {
+  handleDeleteButtonClick:(barcode:string)=>void,
+  handleCounterChange:(counter:number,barcode:string)=>void,
+  counterOfProduct: number,
+} & CardTypeProps;
 
-  }
-
-  const handleCounterChange = () => {
-
-  }
-
+const ShortCard = (props:ShortCardPropsType ) => {
+  const { quantity, quantityImg, imgUrl, title, description, fullDescription, price,barcode,counterOfProduct,handleDeleteButtonClick,handleCounterChange } = props;
+  
   return (
     <article className="short-card">
       <div className="short-card__img">
@@ -30,10 +29,11 @@ const ShortCard = (props:CardTypeProps) => {
         </div>
         <div className="short-card__counter">
           <CounterDelete
-            handleClick={handleDeleteButtonClick} 
+            handleDeleteButtonClick={handleDeleteButtonClick} 
             handleCounterChange={handleCounterChange}
             pricePerUnit={price}
             barcode={barcode}
+            initialCounter={counterOfProduct}
           />
         </div>
       </div>

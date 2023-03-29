@@ -11,9 +11,20 @@ import './CartPage.scss';
 
 const CartPage = () => {
   const [products,setProducts] = useState<JSX.Element[]>();
+  const [total,setTotal] = useState(0);
   const cart = useAppSelector(selectCart);
-  const productsMap:Map<string,number> = new Map();
+
+  const handleDeleteButtonClick = (barcode:string) => {
+    console.log(barcode);
+  }
+
+  const handleCounterChange = (counter: number,barcode:string) => {
+    console.log(counter + ' '+ barcode);
+  }
+
   useEffect(()=>{
+    let currentTotalPrice = 0;
+    const productsMap:Map<string,number> = new Map();
     cart.forEach(barcode => {
       if (productsMap.has(barcode)) {
         const oldNumberOfProduct = productsMap.get(barcode);
@@ -25,9 +36,18 @@ const CartPage = () => {
       const barcode = productNumber[0];
       const quantity = productNumber[1];
       const fullDescription = goodsData.find(data=>data.barcode === barcode);
-      if (fullDescription) productsArray.push(<ShortCard key={barcode} {...fullDescription} />)
+      const price = fullDescription?.price.replace(',','.') ? +fullDescription?.price.replace(',','.') : 0;
+      currentTotalPrice += price * quantity;
+      if (fullDescription) productsArray.push(
+      <ShortCard 
+        counterOfProduct={quantity} 
+        key={barcode}
+        handleCounterChange={handleCounterChange}
+        handleDeleteButtonClick={handleDeleteButtonClick} 
+        {...fullDescription} />)
     }
     setProducts(productsArray);
+    setTotal(+currentTotalPrice.toFixed(2));
   },[cart])
 
   return (
@@ -42,7 +62,10 @@ const CartPage = () => {
         <div className="cart-page__products">
           {products}
         </div>
-        <Button buttonType='common' text='Оформить заказ'/>
+        <div className="cart-page__prepare">
+          <Button buttonType='common' text='Оформить заказ'/>
+          <span className='cart-page__total'>{total + ' '}&#8376;</span>
+        </div>
       </main>
       <Footer callbackRef='https://moch-address-change-me'/>
     </div>
