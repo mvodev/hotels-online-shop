@@ -2,7 +2,7 @@ import './Goods.scss';
 import goodsData from '../../model/goodsData';
 import SelectCardOrder from '../select-card-order/SelectCardOrder';
 import Card, { CardTypeProps } from '../card/Card';
-import { ChangeEvent, PointerEvent, useEffect, useState } from 'react';
+import { ChangeEvent, useEffect, useState } from 'react';
 import ReactPaginate from 'react-paginate';
 import Filter from '../filter/Filter';
 import { useAppSelector } from '../../redux/hooks';
@@ -83,7 +83,7 @@ const Goods = (props:GoodsPropsType) => {
   const categories = new Set();
 
   goodsData.forEach((product) => {
-    product.typeOfCare.split(',').forEach(productTypeOfCare=>categories.add(productTypeOfCare))
+    product.typeOfCare.split(',').forEach(productTypeOfCare=>categories.add(productTypeOfCare.toLowerCase()))
   })
 
   const filters = Array.from(categories).map(
@@ -98,9 +98,6 @@ const Goods = (props:GoodsPropsType) => {
     const formData = new FormData(event.target as HTMLFormElement);
     const input1 = formData.get('first');
     const input2 = formData.get('second');
-    // if (Number(input1) === 0 && Number(input2) === 0) {
-
-    // }
     console.log(input1);
     console.log(input2);
   }

@@ -1,0 +1,47 @@
+.cards {
+
+  &__header {
+    font-family: 'Inter';
+    font-size: 30px;
+    line-height: 45px;
+    font-weight: 400;
+    i {
+      font-style: normal;
+      font-weight: 800;
+    }
+  }
+
+  &__img {
+    width: 664px;
+    height: 471px;
+    img {
+      display: block;
+      margin: 0 auto;
+    }
+  }
+
+  &__bread-crumbs {
+    display: flex;
+    gap: 20px;
+    a{
+      text-decoration: none;
+    }
+  }
+
+  &__wrapper {
+    display: flex;
+    flex-direction: row;
+    gap: 40px;
+  }
+  
+  &__quantity {
+    display: flex;
+    gap: 5px;
+  }
+
+  &__price {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+  }
+}

@@ -30,13 +30,13 @@ const Card = (props:CardTypeProps) => {
     price,
     typeOfCare, } = props;
 
+  const dispatch = useAppDispatch();
+
   const handlerCart = () => {
     dispatch(addToCart({barcode}));
   }
-  const dispatch = useAppDispatch();
 
   return (
-    
     <div className="card">
       <div className="card__img">
         <Link to={`/cards/${barcode}`}>

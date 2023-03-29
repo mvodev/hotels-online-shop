@@ -6,7 +6,7 @@ import 'normalize.css';
 import './index.scss';
 import {store} from './redux/store';
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Cards from './pages/Cards';
+import ProductPage from './pages/ProductPage';
 import NotFound from './pages/NotFound';
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
@@ -16,7 +16,7 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
         <h1>Тестовое задание HOTELS.RU интернет магазин</h1>
         <Routes>
           <Route path='/' element={<MainPage/>} />
-          <Route path='/cards/:id' element={<Cards/>} />
+          <Route path='/cards/:id' element={<ProductPage/>} />
           <Route path='*' element={<NotFound />}/>
         </Routes>
       </BrowserRouter>

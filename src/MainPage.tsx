@@ -4,7 +4,7 @@ import Header from './components/header/Header';
 import './MainPage.scss';
 import Goods from './components/goods/Goods';
 import { Routes, Route } from 'react-router-dom';
-import Cards from './pages/Cards';
+import Cards from './pages/ProductPage';
 
 const MainPage = () => {
   return (

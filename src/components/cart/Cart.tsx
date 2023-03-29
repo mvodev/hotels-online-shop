@@ -18,7 +18,6 @@ const Cart = () => {
         if(value.barcode === barcode) {
           counterOfGoods+=1;
           totalCounter+=+Number(value.price.replace(',','.'));
-          console.log(totalCounter)
         }
       })
     })
