@@ -129,20 +129,8 @@ const Goods = (props:GoodsPropsType) => {
           {filters}
         </aside>
         <div className="goods__wrapper">
-        {currentItems.map((good) => {
-          return <Card 
-            key={good.barcode}
-            imgUrl={good.imgUrl} 
-            quantity={good.quantity} 
-            quantityImg={good.quantityImg} 
-            title={good.title} 
-            description={good.description}
-            barcode= {good.barcode}
-            manufacturer={good.manufacturer}
-            brand={good.brand}
-            typeOfCare={good.typeOfCare}
-            price={good.price}
-          />
+        {currentItems.map((product) => {
+          return <Card {...product} key={product.barcode} />
         })}
       </div>
       </main>
