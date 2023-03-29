@@ -1,4 +1,4 @@
-.cart {
+.cart-page {
   &__header {
     font-family: 'Inter';
     font-style: normal;
@@ -8,5 +8,6 @@
     text-transform: uppercase;
     color: #111111;
     cursor: auto;
+    margin: 50px auto;
   }
 }
