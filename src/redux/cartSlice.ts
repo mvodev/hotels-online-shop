@@ -19,7 +19,7 @@ export const cartSlice = createSlice({
     removeFromCart: (state,action: PayloadAction<{barcode:string}>)=> {
       const index = state.cart.indexOf(action.payload.barcode);
       if (index >-1) {
-        state.cart.slice(index,1);
+        state.cart.splice(index,1);
       }
     }
   },

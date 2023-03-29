@@ -3,14 +3,14 @@ import CounterDelete from '../counter-delete/CounterDelete';
 import './ShortCard.scss';
 
 export type ShortCardPropsType = {
-  handleDeleteButtonClick:(barcode:string)=>void,
+  handleDeleteButtonClick:(counter:number,barcode:string)=>void,
   handleCounterChange:(counter:number,barcode:string)=>void,
   counterOfProduct: number,
 } & CardTypeProps;
 
 const ShortCard = (props:ShortCardPropsType ) => {
   const { quantity, quantityImg, imgUrl, title, description, fullDescription, price,barcode,counterOfProduct,handleDeleteButtonClick,handleCounterChange } = props;
-  
+
   return (
     <article className="short-card">
       <div className="short-card__img">

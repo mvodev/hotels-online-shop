@@ -3,7 +3,7 @@ import Button from '../button/Button';
 import './CounterDelete.scss';
 
 export type CounterDeletePropsType = {
-  handleDeleteButtonClick: (barcode:string)=>void,
+  handleDeleteButtonClick: (counter:number,barcode:string)=>void,
   handleCounterChange:(counter:number,barcode:string)=>void
   initialCounter?: number,
   maxValue?:number,
@@ -36,7 +36,7 @@ const CounterDelete = (props:CounterDeletePropsType) => {
       <div className="counter-delete__price">{price}</div>
       <Button buttonType='delete' onPointerDown={()=>{
           setCounter(0);
-          handleDeleteButtonClick(barcode);
+          handleDeleteButtonClick(counter,barcode);
         }}/>
     </div>
   )

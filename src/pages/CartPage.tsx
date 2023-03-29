@@ -5,17 +5,20 @@ import Footer from '../components/footer/Footer';
 import Header from '../components/header/Header';
 import ShortCard from '../components/short-card/ShortCard';
 import goodsData from '../model/goodsData';
-import { selectCart } from '../redux/cartSlice';
-import { useAppSelector } from '../redux/hooks';
+import { removeFromCart, selectCart } from '../redux/cartSlice';
+import { useAppDispatch, useAppSelector } from '../redux/hooks';
 import './CartPage.scss';
 
 const CartPage = () => {
   const [products,setProducts] = useState<JSX.Element[]>();
   const [total,setTotal] = useState(0);
   const cart = useAppSelector(selectCart);
+  const dispatch = useAppDispatch();
 
-  const handleDeleteButtonClick = (barcode:string) => {
-    console.log(barcode);
+  const handleDeleteButtonClick = (counter: number,barcode:string) => {
+    for (let i=0;i<counter;i++) {
+      dispatch(removeFromCart({barcode}));
+    }
   }
 
   const handleCounterChange = (counter: number,barcode:string) => {
