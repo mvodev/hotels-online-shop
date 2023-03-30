@@ -7,7 +7,12 @@ import { useEffect, useState } from 'react';
 import goodsData from '../../model/goodsData';
 import { Link } from 'react-router-dom';
 
-const Cart = () => {
+export type CartTypeProps = {
+  cropped?: boolean
+}
+
+const Cart = (props:CartTypeProps) => {
+  const {cropped = false} = props;
   const [ goodsInCart, setGoodsInCart ] = useState(0);
   const [ total, setTotal ] = useState(0);
   const cartState = useAppSelector(selectCart);
@@ -37,13 +42,12 @@ const Cart = () => {
           </div>
         </div>
       </Link>
-      <Link to={'/cart'}>
-      <div className="cart__total">
-        
-        <span className='cart__header'>Корзина</span>
-        <span className='cart__price'>{total+' '}&#8376;</span>
-      </div>
-      </Link>
+      {!cropped && <Link to={'/cart'}>
+        <div className="cart__total">
+          <span className='cart__header'>Корзина</span>
+          <span className='cart__price'>{total+' '}&#8376;</span>
+        </div>
+      </Link>}
     </div>
   )
 }
