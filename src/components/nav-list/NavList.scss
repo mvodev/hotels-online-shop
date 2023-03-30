@@ -4,6 +4,18 @@
     color: #3F4E65;
   }
 
+  &__burger {
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+    background-color: #FFC85E;
+    border-radius: 50%;
+    display: none;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
+
   &_white {
     color: white;
   }
@@ -32,5 +44,23 @@
   &__items.nav-list__items_vertival{
     flex-direction: column;
     gap: 20px;
+  }
+
+}
+
+@media (max-width:600px) {
+  .nav-list {
+    &__burger {
+      display: flex;
+    }
+    &__items {
+      display: none;
+    }
+    &__items_visible {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 10px;
+    }
   }
 }
