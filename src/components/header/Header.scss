@@ -4,7 +4,6 @@
   min-height: 169px;
   max-width: $max-width;
   width: 100%;
-  margin-bottom: 100px;
 
   &__first-row {
     min-height: 61px;
@@ -169,18 +168,23 @@
 
 @media (max-width:640px){
   .header {
+
     &__second-row .contacts{
       display: none;
     }
+
     &__second-row .button_download-without-frames,
     &__second-row .button_search {
       display: flex;
     }
+
     &__second-row .button_download {
       display: none;
     }
+
     &__second-row .form_search {
       display: none;
     }
+
   }
 }

@@ -129,22 +129,25 @@ const Goods = (props:GoodsPropsType) => {
           {filters}
         </aside>
         <div className="goods__wrapper">
-        {currentItems.map((product) => {
-          return <Card {...product} key={product.barcode} />
-        })}
-      </div>
+          <div className="goods__cards">
+            {currentItems.map((product) => {
+              return <Card {...product} key={product.barcode} />
+            })}
+          </div>
+          <div className="goods__pagination">
+            <ReactPaginate
+            breakLabel="..."
+            nextLabel=">"
+            onPageChange={handlePaginationClick}
+            pageRangeDisplayed={GOODS_PER_PAGE}
+            pageCount={pageCount}
+            previousLabel="<"
+            renderOnZeroPageCount={() => null}
+          />
+          </div>
+          <p className='goods__description'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam interdum ut justo, vestibulum sagittis iaculis iaculis. Quis mattis vulputate feugiat massa vestibulum duis. Faucibus consectetur aliquet sed pellentesque consequat consectetur congue mauris venenatis. Nunc elit, dignissim sed nulla ullamcorper enim, malesuada.</p>
+        </div>
       </main>
-      <div className="goods__pagination">
-        <ReactPaginate
-        breakLabel="..."
-        nextLabel=">"
-        onPageChange={handlePaginationClick}
-        pageRangeDisplayed={GOODS_PER_PAGE}
-        pageCount={pageCount}
-        previousLabel="<"
-        renderOnZeroPageCount={() => null}
-      />
-      </div>
     </div>
   )
 }
