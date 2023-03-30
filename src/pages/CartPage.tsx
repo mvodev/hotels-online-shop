@@ -11,7 +11,7 @@ import './CartPage.scss';
 
 const CartPage = () => {
   const [products,setProducts] = useState<JSX.Element[]>();
-  const [total,setTotal] = useState(0);
+  const [total,setTotal] = useState('');
   const cart = useAppSelector(selectCart);
   const dispatch = useAppDispatch();
   let productsMap:Map<string,number> = new Map();
@@ -24,7 +24,6 @@ const CartPage = () => {
 
   const handleCounterChange = (counter: number,barcode:string) => {
     const oldPNumberProductsInCart = productsMap.get(barcode);
-    console.log(oldPNumberProductsInCart)
     if (oldPNumberProductsInCart && oldPNumberProductsInCart < counter) {
       dispatch(addToCart({barcode}));
     } else if (oldPNumberProductsInCart && oldPNumberProductsInCart > counter) {
@@ -57,7 +56,7 @@ const CartPage = () => {
         {...fullDescription} />)
     }
     setProducts(productsArray);
-    setTotal(+currentTotalPrice.toFixed(2));
+    setTotal(currentTotalPrice.toFixed(2).replace('.',','));
   },[cart])
 
   return (

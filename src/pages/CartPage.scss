@@ -34,3 +34,23 @@
     line-height: 39px;
   }
 }
+
+@media (max-width:1700px) {
+  .cart-page {
+    padding: 40px;
+  }
+}
+
+@media (max-width:320px) {
+  .cart-page {
+    padding: 0;
+    &__products {
+      gap: 20px;
+    }
+    &__prepare {
+      flex-direction: column-reverse;
+      align-items: center;
+      gap: 25px;
+    }
+  }
+}

@@ -47,7 +47,7 @@ const CounterDelete = (props:CounterDeletePropsType) => {
           +
         </button>
         </div>
-      <div className="counter-delete__price">{+(Number(correctedPricePerUnit).toFixed(2))}</div>
+      <div className="counter-delete__price">{Number(correctedPricePerUnit).toFixed(2).replace('.',',')}</div>
       <Button 
         buttonType='delete' 
         onPointerDown={() => {
