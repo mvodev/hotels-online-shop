@@ -15,7 +15,6 @@ const CounterDelete = (props:CounterDeletePropsType) => {
   const {initialCounter = 0,handleDeleteButtonClick,handleCounterChange, pricePerUnit, barcode} = props;
   const [counter,setCounter] = useState(initialCounter);
   const correctedPricePerUnit = pricePerUnit.replace(',','.');
-  const [price,setPrice] = useState(+((Number(correctedPricePerUnit)*initialCounter).toFixed(2)));
 
   const handleCounter = (event:React.PointerEvent<HTMLButtonElement>) => {
     const isButtonMinusClicked = event.currentTarget.classList.contains('counter-delete__button_minus');
@@ -24,7 +23,6 @@ const CounterDelete = (props:CounterDeletePropsType) => {
       if (counter > 0) newCounterState = counter-1; 
     } else newCounterState =  counter+1;
     setCounter(newCounterState);
-    setPrice(+(newCounterState*Number(correctedPricePerUnit)).toFixed(2));
     handleCounterChange(newCounterState, barcode);
   }
 
@@ -33,7 +31,7 @@ const CounterDelete = (props:CounterDeletePropsType) => {
       <button type='button' className='counter-delete__button counter-delete__button_minus' onPointerDown={handleCounter}>-</button>
       <span>{counter}</span>
       <button type='button' className='counter-delete__button counter-delete__button_plus' onPointerDown={handleCounter}>+</button>
-      <div className="counter-delete__price">{price}</div>
+      <div className="counter-delete__price">{+(Number(correctedPricePerUnit).toFixed(2))}</div>
       <Button buttonType='delete' onPointerDown={()=>{
           setCounter(0);
           handleDeleteButtonClick(counter,barcode);

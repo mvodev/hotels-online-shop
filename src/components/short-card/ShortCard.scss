@@ -29,6 +29,12 @@
     color: #3F4E65;
   }
 
+  &__quantity {
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+  }
+
   &__img {
     width: 281px;
     height: 191px;
