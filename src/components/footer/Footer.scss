@@ -19,9 +19,13 @@
     flex-direction: row;
     justify-content: space-between;
     width: 100%;
+    align-items: center;
+  }
+  & .logo_small {
+    display: none;
   }
 
-  &__logo-wrapper .button_download-extra-wide{
+  &__logo-wrapper .button_download-small{
     display: none;
   }
 
@@ -172,8 +176,16 @@
       justify-content: space-between;
     }
 
-    &__logo-wrapper .button_download-extra-wide {
+    &__logo-wrapper .button_download-small {
       display: flex;
+    }
+
+    &__logo-wrapper .logo_small {
+      display: block;
+    } 
+
+    &__logo-wrapper .logo_common {
+      display: none;
     }
 
     &__price h3,&__price .button_download-extra-wide{

@@ -20,7 +20,8 @@ const Footer = (props:FooterPropsType) => {
       <div className="footer__left-side">
         <div className="footer__logo-wrapper">
           <Logo mode='white'/>
-          <Button buttonType='download-extra-wide' text='Прайс-лист'/>
+          <Logo mode='white' small={true}/>
+          <Button buttonType='download-small' text='Прайс-лист'/>
         </div>
         <p className='footer__description'>
           Компания «Султан» — снабжаем розничные магазины товарами 
