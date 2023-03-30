@@ -1,15 +1,13 @@
 import './Form.scss';
-import arrowUrl from '../../assets/images/arrow-right.svg';
-import searchUrl from '../../assets/images/search.svg';
 
 export type EmailFormProps = {
-  action: string,
   type: 'email' | 'search' | 'search-wide',
+  searchHandler:()=>void,
 }
 
 const Form = (props: EmailFormProps) => {
-  const { action, type } = props;
-  const classNameFormModificators = type === 'email' ? 'form__input_email' : type === 'search' ? 'form__input_search' : 'form__input_search-wide';
+  const { type,searchHandler } = props;
+  const classNameFormModificators = type === 'email' ? 'form_email' : type === 'search' ? 'form_search' : 'form_search-wide';
   const placeholder = type === 'email' ? 'Введите ваш E-mail' : 'Поиск';
   const input = 
     type === 'email' 
@@ -17,6 +15,7 @@ const Form = (props: EmailFormProps) => {
         name="email"
         className="form__input" 
         type="email" 
+        onChange={searchHandler}
         required 
         pattern = "[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2, 4}$"
         placeholder={placeholder}
@@ -24,12 +23,13 @@ const Form = (props: EmailFormProps) => {
     : <input 
         name='search'
         className="form__input" 
+        onChange={searchHandler}
         type='text' 
         required 
         placeholder={placeholder}
       /> 
   return (
-    <form className={`form ${classNameFormModificators}`} action={action}>
+    <form className={`form ${classNameFormModificators}`}>
       {input}
       <button className="form__submit" type="submit">
       </button>
