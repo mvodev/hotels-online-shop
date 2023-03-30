@@ -50,7 +50,9 @@
     font-size: 1.17rem;
   }
 
-  &_download,&_download-wide,&_download-extra-wide {
+  &_download,
+  &_download-wide,
+  &_download-extra-wide {
     height: 59px;
     border-radius: 79px;
     font-size: 1.17rem;
@@ -58,7 +60,9 @@
       gap: 12px;
     }
   }
-  &_download-without-frames {
+
+  &_download-without-frames,
+  &_search {
     height: auto;
     width: auto;
     background: none;
@@ -69,7 +73,8 @@
     gap: 6px;
   }
 
-  &_download-without-frames:hover {
+  &_download-without-frames:hover,
+  &_search:hover {
     background-color: gainsboro;
   }
 

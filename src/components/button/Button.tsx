@@ -4,6 +4,7 @@ import cartUrl from '../../assets/images/cart.svg';
 import catalogUrl from '../../assets/images/catalog.svg';
 import catalogBlackUrl from '../../assets/images/catalog-black.svg';
 import downloadUrl from '../../assets/images/download.svg';
+import loupeBlackUrl from '../../assets/images/loupe-black.svg';
 
 export type ButtonProps = {
   buttonType: 'common'                  | 
@@ -13,7 +14,8 @@ export type ButtonProps = {
               'download-extra-wide'     |
               'cart'                    | 
               'cart-wide'               |
-              'delete'
+              'delete'                  |
+              'search'
   text?:string,
   href?:string,
 }
@@ -32,7 +34,10 @@ const Button = (props:ButtonProps & React.ButtonHTMLAttributes<HTMLButtonElement
   } else if (buttonType === 'download') {
       alt = 'catalog image';
       imgSrc = catalogUrl;
-  } else if (buttonType === 'download-without-frames') {
+  } else if (buttonType === 'search') {
+      alt = 'loupe image';
+      imgSrc = loupeBlackUrl;
+  }else if (buttonType === 'download-without-frames') {
       alt = 'catalog image';
       imgSrc = catalogBlackUrl;
   } else if (buttonType === 'download-wide' || buttonType === 'download-extra-wide') {
