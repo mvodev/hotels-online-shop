@@ -13,7 +13,9 @@ const MainPage = () => {
         console.log('add search handler for header component!!!')
       }}/> 
       <Goods title='Косметика и гигиена'/>
-      <Footer callbackRef='mock-address-change-me' />
+      <Footer callbackRef='mock-address-change-me' searchHandler={()=>{
+        console.log('add search handler!!!')
+      }}/>
     </div>
   )
 }
