@@ -58,6 +58,20 @@
       gap: 12px;
     }
   }
+  &_download-without-frames {
+    height: auto;
+    width: auto;
+    background: none;
+    color:#3F4E65;
+    font-size: 12;
+    font-weight: 600;
+    flex-direction: row-reverse;
+    gap: 6px;
+  }
+
+  &_download-without-frames:hover {
+    background-color: gainsboro;
+  }
 
   &_download {
     width: 192px;

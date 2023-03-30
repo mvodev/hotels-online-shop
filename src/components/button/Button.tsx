@@ -2,10 +2,18 @@ import './Button.scss';
 import deleteUrl from '../../assets/images/delete.svg';
 import cartUrl from '../../assets/images/cart.svg';
 import catalogUrl from '../../assets/images/catalog.svg';
+import catalogBlackUrl from '../../assets/images/catalog-black.svg';
 import downloadUrl from '../../assets/images/download.svg';
 
 export type ButtonProps = {
-  buttonType: 'common' | 'download' | 'download-wide' |'download-extra-wide' | 'cart'| 'cart-wide' | 'delete'
+  buttonType: 'common'                  | 
+              'download'                | 
+              'download-wide'           |
+              'download-without-frames' |
+              'download-extra-wide'     |
+              'cart'                    | 
+              'cart-wide'               |
+              'delete'
   text?:string,
   href?:string,
 }
@@ -19,14 +27,17 @@ const Button = (props:ButtonProps & React.ButtonHTMLAttributes<HTMLButtonElement
     imgSrc = deleteUrl;
     alt = 'trash image';
   } else if (buttonType === 'cart' || buttonType === 'cart-wide') {
-    alt = 'cart image';
-    imgSrc = cartUrl;
+      alt = 'cart image';
+      imgSrc = cartUrl;
   } else if (buttonType === 'download') {
-    alt = 'catalog image';
-    imgSrc = catalogUrl;
+      alt = 'catalog image';
+      imgSrc = catalogUrl;
+  } else if (buttonType === 'download-without-frames') {
+      alt = 'catalog image';
+      imgSrc = catalogBlackUrl;
   } else if (buttonType === 'download-wide' || buttonType === 'download-extra-wide') {
-    alt = 'download image';
-    imgSrc = downloadUrl;
+      alt = 'download image';
+      imgSrc = downloadUrl;
   }
   if (buttonType === 'common'){
     buttonBody = <>
