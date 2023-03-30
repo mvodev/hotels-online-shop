@@ -11,4 +11,12 @@
     background-image: url('../../assets/images/logo-dark.svg');
   }
 
+  &_small {
+    width: 97px;
+    height: 41px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    flex: 0 0 97px;
+  }
+
 }
