@@ -53,7 +53,7 @@
     &__burger {
       display: flex;
     }
-    &__items {
+    &__items .nav-list_burger{
       display: none;
     }
     &__items_visible {

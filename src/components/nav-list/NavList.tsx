@@ -24,7 +24,6 @@ const NavList = (props:NavListProps) => {
   })
 
   const handleBurger = () => {
-    console.log('inside');
     if (navListClass.length === 0) {
       setNavListClass('nav-list__items_visible')
     } else setNavListClass('');
@@ -34,7 +33,12 @@ const NavList = (props:NavListProps) => {
     <nav className={`nav-list ${withBurger ? 'nav-list_burger' : ''} ${isVertical? 'nav-list_vertival' : ''} ${mode==='dark'? 'nav-list_dark' : 'nav-list_white'}`}>
       {withBurger && <div className="nav-list__burger" onPointerDown={handleBurger}>
         <img src={burgerUrl} alt="menu image" /></div>}
-      <ul className={`nav-list__items ${isVertical? 'nav-list__items_vertival' : ''} ${navListClass}`}>
+      <ul className={
+        `nav-list__items 
+        ${isVertical? 'nav-list__items_vertival' : ''} 
+        ${navListClass} 
+        ${withBurger ? 'nav-list_burger' : ''}`
+        }>
         {items}
       </ul>
     </nav>
