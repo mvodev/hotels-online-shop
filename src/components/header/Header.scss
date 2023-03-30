@@ -9,12 +9,15 @@
   &__first-row {
     min-height: 61px;
     padding: 10px 14.427%;
+
     .cart {
       display: none;
     }
+
     .logo {
       display: none;
     }
+
   }
 
   &__second-row {
@@ -31,7 +34,8 @@
     justify-content: space-between;
   }
 
-  &__second-row .button_download-without-frames {
+  &__second-row .button_download-without-frames,
+  &__second-row .button_search {
     display: none;
   }
 
@@ -124,11 +128,13 @@
 
 @media (max-width:1140px){
   .header {
+
     &__first-row {
       display: flex;
       flex-direction: column;
       gap: 10px;
     }
+
   }
 }
 
@@ -137,16 +143,20 @@
     .logo {
       display: block;
     }
+
     .cart {
       display: block;
     }
+
     &__first-row {
       align-items: center;
       flex-direction: row;
     }
+
     &__address {
       display: none;
     }
+
   }
 }
 
@@ -162,7 +172,8 @@
     &__second-row .contacts{
       display: none;
     }
-    &__second-row .button_download-without-frames {
+    &__second-row .button_download-without-frames,
+    &__second-row .button_search {
       display: flex;
     }
     &__second-row .button_download {
