@@ -1,6 +1,7 @@
 .logo {
   width: 156px;
   height: 66px;
+  flex: 0 0 156px;
 
   &_color_white {
     background-image: url('../../assets/images/logo-white.svg');

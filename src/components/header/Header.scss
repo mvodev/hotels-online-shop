@@ -8,20 +8,18 @@
 
   &__first-row {
     min-height: 61px;
-    padding: 10px 277px;
+    padding: 10px 14.427%;
   }
 
   &__second-row {
     min-height: 107px;
-    padding: 10px 277px;
+    padding: 10px 14.427%;
   }
 
   &__first-row,
   &__second-row {
     border-bottom: 1px solid rgba($color: #3F4E65, $alpha: 0.2);
-  }
-
-  &__first-row,&__second-row {
+    align-items: center;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -88,9 +86,38 @@
 
   &__image {
     height: 92px;
+    flex: 0 0 92px;
     width: 70px;
     background-image: url('../../assets/images/girl.svg');
     background-size: cover;
   }
 
+}
+
+@media (max-width:1700px){
+  .header {
+    &__image {
+      display: none;
+    }
+    &__first-row,
+    &__second-row{
+      padding: 10px 20px;
+    }
+  }
+}
+
+@media (max-width:1140px){
+  .header .button_download-wide {
+    display: none;
+  }
+}
+
+@media (max-width:1140px){
+  .header {
+    &__first-row {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+  }
 }
