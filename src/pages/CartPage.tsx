@@ -30,7 +30,6 @@ const CartPage = () => {
     } else if (oldPNumberProductsInCart && oldPNumberProductsInCart > counter) {
       dispatch(removeFromCart({barcode}));
     }
-    console.log(counter + ' '+ barcode);
   }
 
   useEffect(()=>{
@@ -63,7 +62,9 @@ const CartPage = () => {
 
   return (
     <div className="wrapper">
-      <Header callbackRef='https://moch-address-change-me'/>
+      <Header callbackRef='https://moch-address-change-me' searchHandler={()=>{
+        console.log('add search handler for header component!!!')
+      }}/>
       <main className='cart-page'>
         <BreadCrumbs links={[
           {link:'/',name:'Главная'},

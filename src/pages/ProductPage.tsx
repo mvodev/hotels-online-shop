@@ -24,7 +24,9 @@ const ProductPage = () => {
 
   return (
     <div className="wrapper">
-      <Header callbackRef="https://mock-address-change-me"/>
+      <Header callbackRef="https://mock-address-change-me" searchHandler={()=>{
+        console.log('add search handler for header component!!!')
+      }}/>
       <main className="cards">
         <BreadCrumbs links={[
           {link:'/',name:'Главная'},

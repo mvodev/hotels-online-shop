@@ -8,10 +8,11 @@ import Cart from '../cart/Cart';
 
 export type HeaderPropsType = {
   callbackRef: string,
+  searchHandler:()=>void,
 }
 
 const Header = (props: HeaderPropsType) => {
-  const { callbackRef } = props;
+  const { callbackRef,searchHandler } = props;
 
   return (
     <header className="header">
@@ -49,7 +50,9 @@ const Header = (props: HeaderPropsType) => {
       <div className="header__second-row">
         <Logo mode='dark'/>
         <Button buttonType='download' text='Каталог'/>
-        <Form type='search' action='#'/>
+        <Button buttonType='download-without-frames' text='Каталог'/>
+        <Button buttonType='search' text='Поиск' onPointerDown={searchHandler}/>
+        <Form type='search' searchHandler={searchHandler}/>
         <Contacts callbackRef={callbackRef} mode='dark'/>
         <div className="header__image"></div>
         <Button buttonType='download-wide' text='Прайс-лист'/>

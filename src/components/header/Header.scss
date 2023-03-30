@@ -31,6 +31,10 @@
     justify-content: space-between;
   }
 
+  &__second-row .button_download-without-frames {
+    display: none;
+  }
+
   &__address {
     display: flex;
     flex-direction: row;
@@ -154,7 +158,18 @@
 }
 
 @media (max-width:640px){
-  .header__second-row .contacts{
-    display: none;
+  .header {
+    &__second-row .contacts{
+      display: none;
+    }
+    &__second-row .button_download-without-frames {
+      display: flex;
+    }
+    &__second-row .button_download {
+      display: none;
+    }
+    &__second-row .form_search {
+      display: none;
+    }
   }
 }
