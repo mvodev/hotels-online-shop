@@ -53,7 +53,7 @@ const Footer = (props:FooterPropsType) => {
           </div>
         </div>
         <div className="footer__price">
-          <h3>Скачать прайс-лист:</h3>
+          <h3 className='footer__header'>Скачать прайс-лист:</h3>
           <Button buttonType='download-extra-wide' text='Прайс-лист'/>
           <span>Связь в мессенджерах:</span>
           <div className="footer__messengers">

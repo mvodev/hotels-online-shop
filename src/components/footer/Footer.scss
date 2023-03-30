@@ -12,11 +12,21 @@
   display: flex;
   flex-direction: row;
   gap: 3.07%;
+  font-family: 'Inter';
 
   &__description {
     max-width: 320px;
     width: 100%;
     line-height: 24px;
+    margin-bottom: 45px;
+    margin-top: 15px;
+  }
+
+  &__header {
+    margin-bottom: 25px;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 30px;
   }
 
   &__nav {
@@ -86,5 +96,13 @@
 
   &__cards {
     margin-top: 25px;
+  }
+
+  &__sub-header {
+    font-family: 'Inter';
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 18px;
+    margin-bottom: 14px;
   }
 }
