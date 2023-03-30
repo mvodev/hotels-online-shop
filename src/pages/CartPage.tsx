@@ -5,7 +5,7 @@ import Footer from '../components/footer/Footer';
 import Header from '../components/header/Header';
 import ShortCard from '../components/short-card/ShortCard';
 import goodsData from '../model/goodsData';
-import { removeFromCart, selectCart } from '../redux/cartSlice';
+import { addToCart, removeFromCart, selectCart } from '../redux/cartSlice';
 import { useAppDispatch, useAppSelector } from '../redux/hooks';
 import './CartPage.scss';
 
@@ -14,6 +14,7 @@ const CartPage = () => {
   const [total,setTotal] = useState(0);
   const cart = useAppSelector(selectCart);
   const dispatch = useAppDispatch();
+  let productsMap:Map<string,number> = new Map();
 
   const handleDeleteButtonClick = (counter: number,barcode:string) => {
     for (let i=0;i<counter;i++) {
@@ -22,12 +23,19 @@ const CartPage = () => {
   }
 
   const handleCounterChange = (counter: number,barcode:string) => {
+    const oldPNumberProductsInCart = productsMap.get(barcode);
+    console.log(oldPNumberProductsInCart)
+    if (oldPNumberProductsInCart && oldPNumberProductsInCart < counter) {
+      dispatch(addToCart({barcode}));
+    } else if (oldPNumberProductsInCart && oldPNumberProductsInCart > counter) {
+      dispatch(removeFromCart({barcode}));
+    }
     console.log(counter + ' '+ barcode);
   }
 
   useEffect(()=>{
     let currentTotalPrice = 0;
-    const productsMap:Map<string,number> = new Map();
+    productsMap = new Map();
     cart.forEach(barcode => {
       if (productsMap.has(barcode)) {
         const oldNumberOfProduct = productsMap.get(barcode);
