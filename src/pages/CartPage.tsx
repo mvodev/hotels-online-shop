@@ -79,7 +79,9 @@ const CartPage = () => {
           <span className='cart-page__total'>{total + ' '}&#8376;</span>
         </div>
       </main>
-      <Footer callbackRef='https://moch-address-change-me'/>
+      <Footer callbackRef='https://moch-address-change-me' searchHandler={()=> {
+        console.log('add search handler');
+      }}/>
     </div>
   )
 
