@@ -9,6 +9,12 @@
   &__first-row {
     min-height: 61px;
     padding: 10px 14.427%;
+    .cart {
+      display: none;
+    }
+    .logo {
+      display: none;
+    }
   }
 
   &__second-row {
@@ -119,5 +125,36 @@
       flex-direction: column;
       gap: 10px;
     }
+  }
+}
+
+@media (max-width:950px){
+  .header {
+    .logo {
+      display: block;
+    }
+    .cart {
+      display: block;
+    }
+    &__first-row {
+      align-items: flex-start;
+      flex-direction: row;
+    }
+    &__address {
+      display: none;
+    }
+  }
+}
+
+@media (max-width:950px){
+  .header__second-row .logo,
+  .header__second-row .cart{
+    display: none;
+  }
+}
+
+@media (max-width:640px){
+  .header__second-row .contacts{
+    display: none;
   }
 }

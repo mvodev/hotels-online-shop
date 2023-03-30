@@ -33,14 +33,18 @@ const Header = (props: HeaderPropsType) => {
           </div>
         </div>
         <NavList 
-          mode='dark' isVertical={false} 
-            links={[
-              {text:'О компании',href:'mock-address-change-me'},
-              {text:'Доставка и оплата',href:'mock-address-change-me'},
-              {text:'Возврат',href:'mock-address-change-me'},
-              {text:'Контакты',href:'mock-address-change-me'},
-            ]}
-          />
+          mode='dark'
+          withBurger={true}
+          isVertical={false} 
+          links={[
+            {text:'О компании', href:'mock-address-change-me'},
+            {text:'Доставка и оплата', href:'mock-address-change-me'},
+            {text:'Возврат', href:'mock-address-change-me'},
+            {text:'Контакты', href:'mock-address-change-me'},
+          ]}
+        />
+        <Logo mode='dark'/>
+      <Cart cropped={true}/>
       </div>
       <div className="header__second-row">
         <Logo mode='dark'/>
