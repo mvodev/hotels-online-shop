@@ -3,6 +3,17 @@
 .form {
   position: relative;
   height: 59px;
+  &_email {
+    width: 282px;
+  }
+
+  &_search {
+    width: 238px;
+  }
+
+  &_search-wide {
+    width: 263px;
+  }
 
   &__input {
     height: 59px;
@@ -26,18 +37,6 @@
       line-height: 1.5rem;
     }
 
-    &_email {
-      width: 282px;
-    }
-
-    &_search {
-      width: 238px;
-      flex: 0 0 238px;
-    }
-
-    &_search-wide {
-      width: 263px;
-    }
   }
 
   &__submit {
