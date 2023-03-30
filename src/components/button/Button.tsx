@@ -10,6 +10,7 @@ export type ButtonProps = {
   buttonType: 'common'                  | 
               'download'                | 
               'download-wide'           |
+              'download-small'          |
               'download-without-frames' |
               'download-extra-wide'     |
               'cart'                    | 
@@ -37,10 +38,13 @@ const Button = (props:ButtonProps & React.ButtonHTMLAttributes<HTMLButtonElement
   } else if (buttonType === 'search') {
       alt = 'loupe image';
       imgSrc = loupeBlackUrl;
-  }else if (buttonType === 'download-without-frames') {
+  } else if (buttonType === 'download-without-frames') {
       alt = 'catalog image';
       imgSrc = catalogBlackUrl;
-  } else if (buttonType === 'download-wide' || buttonType === 'download-extra-wide') {
+  } else if (buttonType === 'download-small') {
+      alt = 'download image';
+      imgSrc = downloadUrl;
+  }else if (buttonType === 'download-wide' || buttonType === 'download-extra-wide') {
       alt = 'download image';
       imgSrc = downloadUrl;
   }
