@@ -28,11 +28,27 @@ const CounterDelete = (props:CounterDeletePropsType) => {
 
   return (
     <div className="counter-delete">
-      <button type='button' className='counter-delete__button counter-delete__button_minus' onPointerDown={handleCounter}>-</button>
-      <span>{counter}</span>
-      <button type='button' className='counter-delete__button counter-delete__button_plus' onPointerDown={handleCounter}>+</button>
+      <button 
+      type='button' 
+      className='counter-delete__button counter-delete__button_minus' 
+      onPointerDown={handleCounter}
+      >
+        -
+      </button>
+      <span>
+        {counter}
+      </span>
+      <button 
+        type='button' 
+        className='counter-delete__button counter-delete__button_plus' 
+        onPointerDown={handleCounter}
+      >
+        +
+      </button>
       <div className="counter-delete__price">{+(Number(correctedPricePerUnit).toFixed(2))}</div>
-      <Button buttonType='delete' onPointerDown={()=>{
+      <Button 
+        buttonType='delete' 
+        onPointerDown={() => {
           setCounter(0);
           handleDeleteButtonClick(counter,barcode);
         }}/>
