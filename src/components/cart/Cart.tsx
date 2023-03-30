@@ -34,10 +34,10 @@ const Cart = (props:CartTypeProps) => {
 
 
   return (
-    <div className="cart">
+    <div className={`cart ${cropped?'cart_cropped':''}`}>
       <Link to={'/cart'}>
-        <div className="cart__img">
-          <div className="cart__goods">
+        <div className={`cart__img ${cropped?'cart_cropped':''}`}>
+          <div className={`cart__goods ${cropped?'cart_cropped':''}`}>
             {goodsInCart}
           </div>
         </div>

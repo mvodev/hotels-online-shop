@@ -1,4 +1,8 @@
 .cart {
+  &_cropped {
+    width: 32px;
+    height: 30px;
+  }
   height: 46px;
   max-width: 128px;
   width: 100%;
@@ -19,6 +23,11 @@
     position: relative;
     background-image: url('../../assets/images/basket.svg');
   }
+  &__img.cart_cropped {
+    background-image: url('../../assets/images/basket-cropped.svg');
+    width: 25px;
+    height: 25px;
+  }
   &__goods {
     width: 22px;
     height: 22px;
@@ -31,6 +40,12 @@
     position: absolute;
     right: 0;
     top: 0;
+  }
+  &__goods.cart_cropped {
+    width: 17px;
+    height: 17px;
+    right: -10px;
+    font-size: 10px;
   }
 
   &__total {
