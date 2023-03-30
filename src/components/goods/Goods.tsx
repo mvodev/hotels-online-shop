@@ -103,7 +103,7 @@ const Goods = (props:GoodsPropsType) => {
   }
 
   return (
-    <div className="goods">
+    <main className="goods">
       <div className="goods__header-wrapper">
         <h2 className='goods__header'>{title}</h2>
         <div className="goods__select-order">
@@ -116,7 +116,7 @@ const Goods = (props:GoodsPropsType) => {
           return <div key={index} className="goods__filter-wrapper">{filter}</div>
         })}
       </div>
-      <main className='goods__main'>
+      <div className='goods__main'>
         <aside className='goods__params'>
           <h3 className='goods__params-header'>Подбор по параметрам</h3>
           <Diapason 
@@ -147,8 +147,8 @@ const Goods = (props:GoodsPropsType) => {
           </div>
           <p className='goods__description'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam interdum ut justo, vestibulum sagittis iaculis iaculis. Quis mattis vulputate feugiat massa vestibulum duis. Faucibus consectetur aliquet sed pellentesque consequat consectetur congue mauris venenatis. Nunc elit, dignissim sed nulla ullamcorper enim, malesuada.</p>
         </div>
-      </main>
-    </div>
+      </div>
+    </main>
   )
 }
 

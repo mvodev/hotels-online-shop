@@ -16,25 +16,27 @@ const ShortCard = (props:ShortCardPropsType ) => {
       <div className="short-card__img">
         <img src={imgUrl} alt="product image" />
       </div>
-      <div className="short-card__description">
+      <div className="short-card__main">
         <div className="short-card__quantity">
           <div className="short-card__quantity-img">
             <img src={quantityImg} alt="container image" />
           </div>
           <div className="short-card__quantity-size">{quantity}</div>
         </div>
-        <div className="short-card__description-wrapper">
-          <h3 className='short-card__header'>{title}{description}</h3>
-          <p className='short-card__full-description'>{fullDescription}</p>
-        </div>
-        <div className="short-card__counter">
-          <CounterDelete
-            handleDeleteButtonClick={handleDeleteButtonClick} 
-            handleCounterChange={handleCounterChange}
-            pricePerUnit={price}
-            barcode={barcode}
-            initialCounter={counterOfProduct}
-          />
+        <div className="short-card__wrapper">
+          <div className="short-card__description-wrapper">
+            <h3 className='short-card__header'>{title}{description}</h3>
+            <p className='short-card__description'>{fullDescription}</p>
+          </div>
+          <div className="short-card__counter">
+            <CounterDelete
+              handleDeleteButtonClick={handleDeleteButtonClick} 
+              handleCounterChange={handleCounterChange}
+              pricePerUnit={price}
+              barcode={barcode}
+              initialCounter={counterOfProduct}
+            />
+          </div>
         </div>
       </div>
     </article>
