@@ -37,7 +37,7 @@ const NavList = (props:NavListProps) => {
         `nav-list__items 
         ${isVertical? 'nav-list__items_vertival' : ''} 
         ${navListClass} 
-        ${withBurger ? 'nav-list_burger' : ''}`
+        ${withBurger ? 'nav-list__items_burger' : ''}`
         }>
         {items}
       </ul>
