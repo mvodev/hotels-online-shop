@@ -8,22 +8,26 @@ import './Footer.scss';
 import Contacts from '../contacts/Contacts';
 
 export type FooterPropsType = {
-  callbackRef:string
+  callbackRef:string,
+  searchHandler:()=>void,
 }
 
 const Footer = (props:FooterPropsType) => {
-  const {callbackRef} = props;
+  const { callbackRef, searchHandler } = props;
 
   return (
     <footer className='footer'>
       <div className="footer__left-side">
-        <Logo mode='white'/>
+        <div className="footer__logo-wrapper">
+          <Logo mode='white'/>
+          <Button buttonType='download-extra-wide' text='Прайс-лист'/>
+        </div>
         <p className='footer__description'>
           Компания «Султан» — снабжаем розничные магазины товарами 
           "под ключ" в Кокчетаве и Акмолинской области
         </p>
         <h3 className='footer__sub-header'>Подпишись на скидки и акции</h3>
-        <Form type='email' action='#'/>
+        <Form type='email' searchHandler={searchHandler}/>
       </div>
       <div className="footer__right-side">
         <div className="footer__nav">
@@ -52,7 +56,8 @@ const Footer = (props:FooterPropsType) => {
             />
           </div>
         </div>
-        <div className="footer__price">
+        <div className="footer__wrapper">
+          <div className="footer__price">
           <h3 className='footer__header'>Скачать прайс-лист:</h3>
           <Button buttonType='download-extra-wide' text='Прайс-лист'/>
           <span>Связь в мессенджерах:</span>
@@ -75,7 +80,7 @@ const Footer = (props:FooterPropsType) => {
           </div>
         </div>
         <div className="footer__contacts">
-          <h3>Контакты:</h3>
+          <h3 className='footer__header'>Контакты:</h3>
           <Contacts callbackRef={callbackRef} mode='white'/>
           <address className="footer__address footer__address_email">
             <a className="footer__email" href="mailto:info@conquest.watch.ru">opt.sultan@mail.ru</a>
@@ -85,6 +90,7 @@ const Footer = (props:FooterPropsType) => {
             <div className="footer__visa-img"></div>
             <div className="footer__mastercard-img"></div>
           </div>
+        </div>
         </div>
       </div>
     </footer>

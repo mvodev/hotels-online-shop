@@ -14,6 +14,17 @@
   gap: 3.07%;
   font-family: 'Inter';
 
+  &__logo-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  &__logo-wrapper .button_download-extra-wide{
+    display: none;
+  }
+
   &__description {
     max-width: 320px;
     width: 100%;
@@ -27,6 +38,7 @@
     font-size: 20px;
     font-weight: 600;
     line-height: 30px;
+    white-space: nowrap;
   }
 
   &__nav {
@@ -104,5 +116,83 @@
     font-weight: 400;
     line-height: 18px;
     margin-bottom: 14px;
+  }
+
+  &__wrapper {
+    display: flex;
+  }
+}
+
+@media (max-width:1500px) {
+  .footer {
+    padding: 50px;
+  }
+}
+
+@media (max-width:1400px) {
+  .footer {
+    &__nav{
+      margin-right: 20px;
+      gap: 20px;
+    }
+    &__price {
+      margin-right: 20px;
+    }
+  }
+}
+
+@media (max-width:1100px) {
+  .footer {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 15px;
+
+    &__left-side {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+}
+
+@media (max-width:700px) {
+  .footer {
+    &__right-side {
+      flex-direction: column;
+      gap: 20px;
+      width: 100%;
+    }
+
+    &__nav {
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+    }
+
+    &__logo-wrapper .button_download-extra-wide {
+      display: flex;
+    }
+
+    &__price h3,&__price .button_download-extra-wide{
+      display: none;
+    }
+
+    &__description {
+      margin-bottom: 15px;
+    }
+
+    &__wrapper {
+      margin-top: 25px;
+      flex-direction: row-reverse;
+      justify-content: space-between;
+      .footer__price {
+        margin-top: 50px;
+        margin-right: 0;
+      }
+    }
+
   }
 }
