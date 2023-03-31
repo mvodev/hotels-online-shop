@@ -27,7 +27,12 @@ class LocalStorage {
     const oldData = this.getItems();
     if (oldData) {
       oldData?.push(data);
-      localStorage.setItem(this.KEY,JSON.stringify(oldData));
+      try {
+        const stringToSave = JSON.stringify(oldData);
+        localStorage.setItem(this.KEY,stringToSave);
+      } catch (error) {
+        console.error('Cannot stringify new object');
+      }
     }
   }
 }
