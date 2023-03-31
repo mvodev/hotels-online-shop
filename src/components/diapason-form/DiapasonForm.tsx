@@ -6,7 +6,7 @@ export type DiapasonFormTypeProps = {
   diapasonUnits: string,
   placeholder1:string,
   placeholder2:string,
-  handleSubmit:(event:React.FormEvent<HTMLFormElement>)=>void
+  handleDiapasonForm:(min:number,max:number)=>void
 }
 
 const DiapasonForm = (props:DiapasonFormTypeProps) => {
@@ -15,24 +15,27 @@ const DiapasonForm = (props:DiapasonFormTypeProps) => {
     diapasonUnits,
     placeholder1,
     placeholder2,
-    handleSubmit
+    handleDiapasonForm
   } = props;
-  const [ minValue, setMinValue ] = useState(0);
-  const [ maxValue, setMaxValue ] = useState(0);
+  const [ min, setMin ] = useState(0);
+  const [ max, setMax ] = useState(10000);
   const [ error, setError ] = useState('');
 
   const handleChange = (event:React.ChangeEvent<HTMLInputElement>) => { 
     const inputNumber = event.target.name;
     setError('');
-    if (Number(event.target.value) < 0) {
+    let dataToHandle = Number(event.target.value);
+    if (Number(dataToHandle) < 0) {
       setError('Введите положительное значение');
-    } else if ((inputNumber === 'first' && Number(event.target.value) > maxValue)||
-    ((inputNumber === 'second' && Number(event.target.value) < minValue))) {
+    } else if ((inputNumber === 'first' && Number(dataToHandle) > max)||
+    ((inputNumber === 'second' && Number(dataToHandle) < min))) {
       setError('Некорректное значение диапазона');
     } else {
       if (inputNumber === 'first') {
-        setMinValue(Number(event.target.value));
-      } else setMaxValue(Number(event.target.value));
+        setMin(Number(dataToHandle));
+      } else {
+        setMax(Number(dataToHandle))
+      };
       setError('');
     }
   }
@@ -40,15 +43,16 @@ const DiapasonForm = (props:DiapasonFormTypeProps) => {
   return (
     <form 
       onSubmit={(event)=>{
-        if (error.length === 0) handleSubmit(event);
+        event.preventDefault();
+        if (error.length === 0) handleDiapasonForm(min,max);
       }} 
       className='diapason'
     >
       <h3 className='diapason__header'>{diapasonTytle +' '}<i>{diapasonUnits}</i></h3>
       <div className="diapason__input-wrapper">
-        <input onChange={handleChange} value={minValue} name='first' type="number" className='diapason__input diapason__input_first' placeholder={placeholder1} required/>
+        <input onChange={handleChange} value={min} name='first' type="number" className='diapason__input diapason__input_first' placeholder={placeholder1} required/>
         <span>-</span>
-        <input value={maxValue} onChange={handleChange} name='second' type="number" className='diapason__input diapason__input_second' placeholder={placeholder2} required/>
+        <input value={max} onChange={handleChange} name='second' type="number" className='diapason__input diapason__input_second' placeholder={placeholder2} required/>
         <button type='submit'></button>
       </div>
       <span className='diapason__error'>{error}</span>

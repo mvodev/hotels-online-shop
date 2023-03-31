@@ -1,4 +1,5 @@
 .cards {
+  padding: 45px 277px 60px 277px;
 
   &__header {
     font-family: 'Inter';
@@ -32,11 +33,32 @@
     display: flex;
     flex-direction: row;
     gap: 40px;
+    margin-top: 65px;
   }
   
   &__quantity {
     display: flex;
     gap: 5px;
+  }
+
+  &__manufacturer,
+  &__brand,
+  &__barcode {
+    margin-top: 5px;
+    font-family: 'Inter';
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 21px;
+    color: #3F4E65;
+    i {
+      color: #111111;
+      font-style: normal;
+      font-family: 'Inter';
+      font-size: 14px;
+      font-weight: 500;
+      line-height: 21px;
+    }
+
   }
 
   &__price {

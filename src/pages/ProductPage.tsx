@@ -51,6 +51,9 @@ const ProductPage = () => {
               <span>{productData?.price+' '}&#8376;</span>
               <Counter handleClick={handleCart}/>
             </div>
+            <div className="cards__manufacturer">Производитель: <i>{productData?.manufacturer}</i></div>
+            <div className="cards__brand">Бренд: <i>{productData?.brand}</i></div>
+            <div className="cards__barcode">Штрихкод: <i>{productData?.barcode}</i></div>
           </div>
         </div>
       </main>

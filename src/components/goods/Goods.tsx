@@ -25,18 +25,21 @@ const Goods = (props:GoodsPropsType) => {
     'nameDecrease'  |
     'priceIncrease' |
     'priceDecrease'
-  >('nameIncrease')
+  >('nameIncrease');
+
   const GOODS_PER_PAGE = 15;
   const endOffset = itemOffset + GOODS_PER_PAGE;
   const currentItems = cards.slice(itemOffset, endOffset);
   const pageCount = Math.ceil(cards.length / GOODS_PER_PAGE);
+
   const filtersState = useAppSelector(selectFilter);
+
   useEffect(()=>{
     if (filtersState.length === 0) {
-      setCards(goodsData.sort(
-          (a, b) => a.title > b.title ? 1 : -1))
+      const sortedArray = sortByParams(sortBy,goodsData)
+      setCards(sortedArray);
     } else {
-      let filteredCards = [...cards];
+      let filteredCards = [...goodsData];
       filtersState.forEach(filterState=>{
         filteredCards = filteredCards.filter(card=>card.typeOfCare.includes(filterState));
       })
@@ -53,31 +56,30 @@ const Goods = (props:GoodsPropsType) => {
   const handleSort = (event:ChangeEvent<HTMLSelectElement>) => {
     const arrayOfCardsToSort = [...cards];
     const sortBy = event.target.value as 'nameIncrease' | 'nameDecrease' | 'priceIncrease' | 'priceDecrease';
-    sortByParams(sortBy,arrayOfCardsToSort);
+    setSortBy(sortBy);
+    const sortedArray = sortByParams(sortBy,arrayOfCardsToSort);
+    setCards(sortedArray);
   }
 
   const sortByParams = (sortBy:'priceDecrease'|'priceIncrease'|'nameDecrease'|'nameIncrease', arrayToSort:Array<CardTypeProps>) => {
+    const copyArray = [...arrayToSort];
     switch(sortBy) {
       case 'nameIncrease': 
-        arrayToSort.sort(
+        copyArray.sort(
           (a, b) => a.title > b.title ? 1 : -1);
-        setCards(arrayToSort);
-        break;
+        return copyArray;
       case 'nameDecrease': 
-        arrayToSort.sort(
+        copyArray.sort(
           (a, b) => a.title < b.title ? 1 : -1);
-        setCards(arrayToSort);
-        break;
+        return copyArray;
       case 'priceIncrease': 
-        arrayToSort.sort(
+        copyArray.sort(
           (a, b) => Number(a.price.replace(',','.')) > Number(b.price.replace(',','.')) ? 1 : -1);
-        setCards(arrayToSort);
-        break;
+        return copyArray;
       case 'priceDecrease': 
-        arrayToSort.sort(
+        copyArray.sort(
           (a, b) => Number(a.price.replace(',','.')) < Number(b.price.replace(',','.')) ? 1 : -1);
-        setCards(arrayToSort);
-        break;
+        return copyArray;
     }}
 
   const categories = new Set();
@@ -93,13 +95,12 @@ const Goods = (props:GoodsPropsType) => {
     ) 
   })
 
-  const handleFormDiapason = (event:React.FormEvent<HTMLFormElement>)=>{
-    event.preventDefault();
-    const formData = new FormData(event.target as HTMLFormElement);
-    const input1 = formData.get('first');
-    const input2 = formData.get('second');
-    console.log(input1);
-    console.log(input2);
+  const handleDiapasonForm = (min:number,max:number)=>{
+    const copyArray = [...cards];
+    const filteredArray = copyArray.filter((product)=>{
+      return Number(product.price.replace(',','.')) <= max && Number(product.price.replace(',','.')) >= min
+    })
+    setCards(filteredArray);
   }
 
   return (
@@ -124,7 +125,7 @@ const Goods = (props:GoodsPropsType) => {
             placeholder2='10000' 
             diapasonTytle='Цена' 
             diapasonUnits='&#8376;'
-            handleSubmit={handleFormDiapason}
+            handleDiapasonForm={handleDiapasonForm}
             />
           {filters}
         </aside>
@@ -136,14 +137,14 @@ const Goods = (props:GoodsPropsType) => {
           </div>
           <div className="goods__pagination">
             <ReactPaginate
-            breakLabel="..."
-            nextLabel=">"
-            onPageChange={handlePaginationClick}
-            pageRangeDisplayed={GOODS_PER_PAGE}
-            pageCount={pageCount}
-            previousLabel="<"
-            renderOnZeroPageCount={() => null}
-          />
+              breakLabel="..."
+              nextLabel=">"
+              onPageChange={handlePaginationClick}
+              pageRangeDisplayed={GOODS_PER_PAGE}
+              pageCount={pageCount}
+              previousLabel="<"
+              renderOnZeroPageCount={() => null}
+            />
           </div>
           <p className='goods__description'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam interdum ut justo, vestibulum sagittis iaculis iaculis. Quis mattis vulputate feugiat massa vestibulum duis. Faucibus consectetur aliquet sed pellentesque consequat consectetur congue mauris venenatis. Nunc elit, dignissim sed nulla ullamcorper enim, malesuada.</p>
         </div>
