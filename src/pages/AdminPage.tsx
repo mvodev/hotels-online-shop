@@ -15,7 +15,6 @@ const AdminPage = () => {
   });
 
   const handleAdd = () => {
-    console.log('handle add');
     navigate('/admin/add');
   }
 
