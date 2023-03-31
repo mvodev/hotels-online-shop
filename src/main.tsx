@@ -22,6 +22,7 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
           <Route path='/cart' element={<CartPage/>} />
           <Route path='/admin' element={<AdminPage/>} />
           <Route path='/admin/:id' element={<ChangePage/>} />
+          <Route path='/admin/add' element={<ChangePage typeOfCard={'new'}/>} />
           <Route path='*' element={<NotFound />}/>
         </Routes>
       </BrowserRouter>

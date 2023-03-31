@@ -1,18 +1,22 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import AdminCard from '../components/admin-card/AdminCard';
+import Button from '../components/button/Button';
 import Header from '../components/header/Header';
 import goodsData from '../model/goodsData';
 import ls from '../storage/LocalStorage';
 import './AdminPage.scss';
 
 const AdminPage = () => {
-  const [ productData, setProductData ] = useState(goodsData);
-  // const [cards,setCards] = useState([]);
+  const navigate = useNavigate();
   const cards = goodsData.map((product) => {
     return <AdminCard {...product} key={product.barcode}/>
   });
 
-  console.log(ls.getItems());
+  const handleAdd = () => {
+    console.log('handle add');
+    navigate('/admin/add');
+  }
 
   return (
     <>
@@ -21,7 +25,8 @@ const AdminPage = () => {
       }} callbackRef={''}/>
       <main className="admin">
         <h1 className='admin__header'>Страница администратора</h1>
-        <h2 className='admin__sub-header'>Кликните для изменения информации</h2>
+        <h2 className='admin__sub-header'>Кликните по карточке товара для изменения или удаления информации или нажмите кнопку добавить для внесения новой</h2>
+        <Button buttonType='add' onPointerDown={handleAdd}/>
         <div className="admin__cards">
           {cards}
         </div>
