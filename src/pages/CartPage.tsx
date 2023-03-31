@@ -69,7 +69,7 @@ const CartPage = () => {
           {link:'/',name:'Главная'},
           {link: '/',name:'Корзина',actual:true}
         ]}/>
-        <h2 className='cart-page__header'>Корзина</h2>
+        <h1 className='cart-page__header'>Корзина</h1>
         <div className="cart-page__products">
           {products}
         </div>

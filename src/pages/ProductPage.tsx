@@ -40,7 +40,7 @@ const ProductPage = () => {
             </div>
           </div>
           <div className="cards__right-side">
-            <h2 className="cards__header"><i>{productData?.title}</i>{productData?.description}</h2>
+            <h1 className="cards__header"><i>{productData?.title}</i>{productData?.description}</h1>
             <div className="cards__quantity">
               <div className="cards__quantity-img">
                 <img src={productData?.quantityImg} alt="img" />
