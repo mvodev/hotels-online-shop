@@ -9,16 +9,17 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import ProductPage from './pages/ProductPage';
 import NotFound from './pages/NotFound';
 import CartPage from './pages/CartPage';
+import AdminPage from './pages/AdminPage';
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
     <Provider store={store}>
       <BrowserRouter>
-        <h1>Тестовое задание HOTELS.RU интернет магазин</h1>
         <Routes>
           <Route path='/' element={<MainPage/>} />
           <Route path='/cards/:id' element={<ProductPage/>} />
           <Route path='/cart' element={<CartPage/>} />
+          <Route path='/admin' element={<AdminPage/>} />
           <Route path='*' element={<NotFound />}/>
         </Routes>
       </BrowserRouter>
