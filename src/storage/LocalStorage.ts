@@ -25,7 +25,10 @@ class LocalStorage {
 
   addItem = (data:CardTypeProps) => {
     const oldData = this.getItems();
-    oldData?.push(data);
+    if (oldData) {
+      oldData?.push(data);
+      localStorage.setItem(this.KEY,JSON.stringify(oldData));
+    }
   }
 }
 
