@@ -9,10 +9,11 @@ import Cart from '../cart/Cart';
 export type HeaderPropsType = {
   callbackRef: string,
   searchHandler:()=>void,
+  withCart?:boolean
 }
 
 const Header = (props: HeaderPropsType) => {
-  const { callbackRef,searchHandler } = props;
+  const { callbackRef,searchHandler, withCart = true } = props;
 
   return (
     <header className="header">
@@ -45,7 +46,7 @@ const Header = (props: HeaderPropsType) => {
           ]}
         />
         <Logo mode='dark'/>
-      <Cart cropped={true}/>
+        {withCart && <Cart cropped={true}/>}
       </div>
       <div className="header__second-row">
         <Logo mode='dark'/>
@@ -56,7 +57,7 @@ const Header = (props: HeaderPropsType) => {
         <Contacts callbackRef={callbackRef} mode='dark'/>
         <div className="header__image"></div>
         <Button buttonType='download-wide' text='Прайс-лист'/>
-        <Cart />
+        {withCart && <Cart />}
       </div>
     </header>
   )

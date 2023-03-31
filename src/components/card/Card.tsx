@@ -52,7 +52,7 @@ const Card = (props:CardTypeProps) => {
       </div>
       <div className="card__description">
         <Link to={`/cards/${barcode}`}>
-        <i>{title + ' '}</i>{description}
+          <i>{title + ' '}</i>{description}
         </Link>
       </div>
       <div className="card__barcode">

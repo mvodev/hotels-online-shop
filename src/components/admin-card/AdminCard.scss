@@ -1,0 +1,11 @@
+.admin-card {
+  border-bottom: 1px solid gray;
+  cursor: pointer;
+  a {
+    color: inherit;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+}

@@ -16,6 +16,7 @@ const Cart = (props:CartTypeProps) => {
   const [ goodsInCart, setGoodsInCart ] = useState(0);
   const [ total, setTotal ] = useState(0);
   const cartState = useAppSelector(selectCart);
+
   useEffect(()=>{
     let counterOfGoods = 0;
     let totalCounter = 0;
@@ -31,7 +32,6 @@ const Cart = (props:CartTypeProps) => {
     setTotal(+totalCounter.toFixed(2));
 
   },[cartState])
-
 
   return (
     <div className={`cart ${cropped?'cart_cropped':''}`}>
