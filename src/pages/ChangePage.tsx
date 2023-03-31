@@ -41,9 +41,9 @@ const ChangePage = (props:ChangePagePropsType) => {
     goodsData.push(data);
     navigate('/admin');
   }
-  
+
   const handleDelete = () => {
-    const index = goodsData.findIndex(elem=>elem.barcode===barcodeOfProduct);
+    const index = goodsData.findIndex(elem => elem.barcode === barcodeOfProduct);
     if (index>-1) {
       goodsData.splice(index,1);
     }
