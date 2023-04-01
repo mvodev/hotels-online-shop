@@ -107,7 +107,7 @@ const Goods = (props:GoodsPropsType) => {
   return (
     <main className="goods">
       <div className="goods__header-wrapper">
-        <h2 className='goods__header'>{title}</h2>
+        <h1 className='goods__header'>{title}</h1>
         <div className="goods__select-order">
           <span>Сортировка:</span>
           <SelectCardOrder onChange={handleSort}/>
