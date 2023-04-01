@@ -60,6 +60,12 @@ class LocalStorage {
       }
     }
   }
+
+  replaceItem = (data:CardTypeProps) => {
+    this.deleteItem(data.barcode);
+    this.addItem(data);
+    console.log(this.getItems());
+  }
 }
 
 const ls = new LocalStorage();
