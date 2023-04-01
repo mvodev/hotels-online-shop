@@ -11,6 +11,7 @@ import {
 import Diapason from '../diapason-form/DiapasonForm';
 import ls from '../../storage/LocalStorage';
 import Form from '../form/Form';
+import { Checkbox, FormControlLabel, FormGroup } from '@mui/material';
 
 export type GoodsPropsType = {
   title:string,
@@ -112,6 +113,12 @@ const Goods = (props:GoodsPropsType) => {
     ) 
   })
 
+  const setOfManufacturers = new Set<string>();
+  dataInStorage.forEach(product=>{
+    setOfManufacturers.add(product.manufacturer);
+  })
+  const arrayOfManufacturers = Array.from(setOfManufacturers);
+
   const handleDiapasonForm = (min:number,max:number)=>{
     setPriceFilter({
       min:`${min}`, max: `${max}`
@@ -145,6 +152,12 @@ const Goods = (props:GoodsPropsType) => {
           {filters}
           <h3 className='goods__params-header'>Производитель</h3>
           <Form type='search' searchHandler={handleSearchManufacturerForm}/>
+          <FormGroup>
+            {arrayOfManufacturers.map(manufacturer=>{
+              return <FormControlLabel key={manufacturer} control={<Checkbox />} label={manufacturer} checked={false}/>
+            })}
+            
+          </FormGroup>
         </aside>
         <div className="goods__wrapper">
           <div className="goods__cards">
