@@ -10,6 +10,7 @@ import {
 } from '../../redux/filterSlice';
 import Diapason from '../diapason-form/DiapasonForm';
 import ls from '../../storage/LocalStorage';
+import Form from '../form/Form';
 
 export type GoodsPropsType = {
   title:string,
@@ -19,8 +20,13 @@ const Goods = (props:GoodsPropsType) => {
   const {title} = props;
   const dataInStorage = ls.getItems() ?? [];
   const [ cards, setCards ] = useState(dataInStorage.sort(
-          (a, b) => a.title > b.title ? 1 : -1));
-  const [itemOffset, setItemOffset] = useState(0);
+    (a, b) => a.title > b.title ? 1 : -1));
+  const [ itemOffset, setItemOffset ] = useState(0);
+  const [ manufacturer, setManufacturer ] = useState('');
+  const [ priceFilter, setPriceFilter ] = useState({
+    min:'',
+    max:'',
+  });
   const [ sortBy, setSortBy ] = useState<
     'nameIncrease'  |
     'nameDecrease'  |
@@ -36,18 +42,24 @@ const Goods = (props:GoodsPropsType) => {
   const filtersState = useAppSelector(selectFilter);
 
   useEffect(()=>{
-    if (filtersState.length === 0) {
-      const sortedArray = sortByParams(sortBy,dataInStorage)
-      setCards(sortedArray);
-    } else {
-      let filteredCards = [...dataInStorage];
-      filtersState.forEach(filterState=>{
-        filteredCards = filteredCards.filter(card=>card.typeOfCare.includes(filterState));
-      })
-      setCards(filteredCards);
+    let copyOfGoods = [...dataInStorage];
+    if (manufacturer.length >0) {
+      copyOfGoods = copyOfGoods.filter(product => product.manufacturer === manufacturer);
     }
-
-  },[filtersState])
+    if (priceFilter.min.length > 0 && priceFilter.max.length) {
+      const min = Number(priceFilter.min);
+      const max = Number(priceFilter.max);
+      copyOfGoods = copyOfGoods.filter(product => 
+        Number(product.price.replace(',','.')) > min && Number(product.price.replace(',','.')) < max);
+    }
+    if (filtersState.length !== 0) {
+      filtersState.forEach(filterState=>{
+        copyOfGoods = copyOfGoods.filter(card=>card.typeOfCare.includes(filterState));
+      })
+    }
+    copyOfGoods = sortByParams(sortBy,copyOfGoods);
+    setCards(copyOfGoods);
+  },[filtersState,sortBy,manufacturer,priceFilter])
 
   const handlePaginationClick = (event:{selected:number}) => {
     const newOffset = (event.selected * GOODS_PER_PAGE) % cards.length;
@@ -60,6 +72,10 @@ const Goods = (props:GoodsPropsType) => {
     setSortBy(sortBy);
     const sortedArray = sortByParams(sortBy,arrayOfCardsToSort);
     setCards(sortedArray);
+  }
+
+  const handleSearchManufacturerForm = (dataFromInput:string) => {
+    setManufacturer(dataFromInput);
   }
 
   const sortByParams = (sortBy:'priceDecrease'|'priceIncrease'|'nameDecrease'|'nameIncrease', arrayToSort:Array<CardTypeProps>) => {
@@ -97,11 +113,9 @@ const Goods = (props:GoodsPropsType) => {
   })
 
   const handleDiapasonForm = (min:number,max:number)=>{
-    const copyArray = [...cards];
-    const filteredArray = copyArray.filter((product)=>{
-      return Number(product.price.replace(',','.')) <= max && Number(product.price.replace(',','.')) >= min
+    setPriceFilter({
+      min:`${min}`, max: `${max}`
     })
-    setCards(filteredArray);
   }
 
   return (
@@ -129,6 +143,8 @@ const Goods = (props:GoodsPropsType) => {
             handleDiapasonForm={handleDiapasonForm}
             />
           {filters}
+          <h3 className='goods__params-header'>Производитель</h3>
+          <Form type='search' searchHandler={handleSearchManufacturerForm}/>
         </aside>
         <div className="goods__wrapper">
           <div className="goods__cards">

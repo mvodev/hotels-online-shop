@@ -41,12 +41,9 @@ const ChangePage = (props:ChangePagePropsType) => {
   const navigate = useNavigate();
 
   const onSubmit: SubmitHandler<Inputs> = (data) => {
-    console.log(data);
     if (typeOfCard === 'new') {
-      console.log('add item')
       ls.addItem(data);
     } else {
-      console.log('replace item');
       ls.replaceItem(data);
     }
     navigate('/admin');

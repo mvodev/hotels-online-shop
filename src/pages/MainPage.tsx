@@ -7,11 +7,11 @@ const MainPage = () => {
   return (
     <div className="wrapper">
       <Header callbackRef='mock-address-change-me' searchHandler={()=>{
-        console.log('add search handler for header component!!!')
+        console.log('add search handler for header!!!')
       }}/> 
       <Goods title='Косметика и гигиена'/>
       <Footer callbackRef='mock-address-change-me' searchHandler={()=>{
-        console.log('add search handler!!!')
+        console.log('add footer search handler!!!')
       }}/>
     </div>
   )
