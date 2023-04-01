@@ -23,6 +23,18 @@ class LocalStorage {
     }
   }
 
+  getItem = (barcode:string) => {
+    try {
+      const obj =  localStorage.getItem(this.KEY);
+      if (obj) {
+        const goods = JSON.parse(obj) as Array<CardTypeProps>;
+        return goods.find((product=>product.barcode===barcode));
+      }
+    } catch (error) {
+      console.error('cannot get data from local storage');
+    }
+  }
+
   addItem = (data:CardTypeProps) => {
     const oldData = this.getItems();
     if (oldData) {
