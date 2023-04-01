@@ -12,6 +12,19 @@ class LocalStorage {
     localStorage.setItem(this.KEY,'')
   }
 
+  deleteItem = (barcode:string) => {
+    const dataInStorage = this.getItems() ?? [];
+    const index = dataInStorage.findIndex(elem => elem.barcode === barcode);
+    if (index>-1) {
+      dataInStorage.splice(index,1);
+    }
+    try {
+      localStorage.setItem(this.KEY,JSON.stringify(dataInStorage));
+    } catch (error) {
+      console.error('Cannot delete data from local storage,error while stringify data');
+    }
+  }
+
   getItems = () => {
     try {
       const obj =  localStorage.getItem(this.KEY);

@@ -1,5 +1,4 @@
 import './Goods.scss';
-import goodsData from '../../model/goodsData';
 import SelectCardOrder from '../select-card-order/SelectCardOrder';
 import Card, { CardTypeProps } from '../card/Card';
 import { ChangeEvent, useEffect, useState } from 'react';
@@ -10,6 +9,7 @@ import {
   selectFilter,
 } from '../../redux/filterSlice';
 import Diapason from '../diapason-form/DiapasonForm';
+import ls from '../../storage/LocalStorage';
 
 export type GoodsPropsType = {
   title:string,
@@ -17,7 +17,8 @@ export type GoodsPropsType = {
 
 const Goods = (props:GoodsPropsType) => {
   const {title} = props;
-  const [ cards, setCards ] = useState(goodsData.sort(
+  const dataInStorage = ls.getItems() ?? [];
+  const [ cards, setCards ] = useState(dataInStorage.sort(
           (a, b) => a.title > b.title ? 1 : -1));
   const [itemOffset, setItemOffset] = useState(0);
   const [ sortBy, setSortBy ] = useState<
@@ -36,10 +37,10 @@ const Goods = (props:GoodsPropsType) => {
 
   useEffect(()=>{
     if (filtersState.length === 0) {
-      const sortedArray = sortByParams(sortBy,goodsData)
+      const sortedArray = sortByParams(sortBy,dataInStorage)
       setCards(sortedArray);
     } else {
-      let filteredCards = [...goodsData];
+      let filteredCards = [...dataInStorage];
       filtersState.forEach(filterState=>{
         filteredCards = filteredCards.filter(card=>card.typeOfCare.includes(filterState));
       })
@@ -84,7 +85,7 @@ const Goods = (props:GoodsPropsType) => {
 
   const categories = new Set();
 
-  goodsData.forEach((product) => {
+  dataInStorage.forEach((product) => {
     product.typeOfCare.split(',').forEach(productTypeOfCare=>categories.add(productTypeOfCare.toLowerCase()))
   })
 

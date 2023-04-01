@@ -4,8 +4,8 @@ import {
 } from '../../redux/cartSlice';
 import './Cart.scss';
 import { useEffect, useState } from 'react';
-import goodsData from '../../model/goodsData';
 import { Link } from 'react-router-dom';
+import ls from '../../storage/LocalStorage';
 
 export type CartTypeProps = {
   cropped?: boolean
@@ -18,10 +18,11 @@ const Cart = (props:CartTypeProps) => {
   const cartState = useAppSelector(selectCart);
 
   useEffect(()=>{
+    const dataInStorage = ls.getItems() ?? [];
     let counterOfGoods = 0;
     let totalCounter = 0;
     cartState.forEach((barcode) => {
-      goodsData.forEach((value)=>{
+      dataInStorage.forEach((value)=>{
         if(value.barcode === barcode) {
           counterOfGoods+=1;
           totalCounter+=+Number(value.price.replace(',','.'));

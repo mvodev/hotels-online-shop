@@ -4,13 +4,13 @@ import AdminCard from '../components/admin-card/AdminCard';
 import BreadCrumbs from '../components/bread-crumbs/BreadCrumbs';
 import Button from '../components/button/Button';
 import Header from '../components/header/Header';
-import goodsData from '../model/goodsData';
 import ls from '../storage/LocalStorage';
 import './AdminPage.scss';
 
 const AdminPage = () => {
   const navigate = useNavigate();
-  const cards = goodsData.map((product) => {
+  const dataInStorage = ls.getItems() ?? [];
+  const cards = dataInStorage.map((product) => {
     return <AdminCard {...product} key={product.barcode}/>
   });
 

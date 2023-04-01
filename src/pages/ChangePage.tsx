@@ -5,7 +5,7 @@ import BreadCrumbs from "../components/bread-crumbs/BreadCrumbs";
 import Button from "../components/button/Button";
 import { CardTypeProps } from "../components/card/Card";
 import Header from "../components/header/Header";
-import goodsData from "../model/goodsData";
+import ls from "../storage/LocalStorage";
 import './ChangePage.scss';
 
 type Inputs = CardTypeProps;
@@ -16,6 +16,7 @@ export type ChangePagePropsType = {
 
 const ChangePage = (props:ChangePagePropsType) => {
   const { typeOfCard } = props;
+  const dataInStorage = ls.getItems() ?? [];
   const pageTitle = typeOfCard === 'new' ? 'Введите данные': 'Измените данные';
   const buttonSubmitTitle = typeOfCard === undefined ? 'Изменить' : 'Добавить';
   const params = useParams();
@@ -35,20 +36,17 @@ const ChangePage = (props:ChangePagePropsType) => {
       typeOfCare: '',
       fullDescription: '',
     }
-  } else productData = goodsData.find(product=>product.barcode === barcodeOfProduct);
+  } else productData = dataInStorage.find(product=>product.barcode === barcodeOfProduct);
 
   const { register, handleSubmit, watch, formState: { errors } } = useForm<Inputs>();
   const navigate = useNavigate();
   const onSubmit: SubmitHandler<Inputs> = (data) => {
-    goodsData.push(data);
+    ls.addItem(data);
     navigate('/admin');
   }
 
   const handleDelete = () => {
-    const index = goodsData.findIndex(elem => elem.barcode === barcodeOfProduct);
-    if (index>-1) {
-      goodsData.splice(index,1);
-    }
+    ls.deleteItem(barcodeOfProduct);
     navigate('/admin');
   }
 

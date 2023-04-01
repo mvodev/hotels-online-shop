@@ -4,9 +4,9 @@ import Button from '../components/button/Button';
 import Footer from '../components/footer/Footer';
 import Header from '../components/header/Header';
 import ShortCard from '../components/short-card/ShortCard';
-import goodsData from '../model/goodsData';
 import { addToCart, removeFromCart, selectCart } from '../redux/cartSlice';
 import { useAppDispatch, useAppSelector } from '../redux/hooks';
+import ls from '../storage/LocalStorage';
 import './CartPage.scss';
 
 const CartPage = () => {
@@ -14,6 +14,7 @@ const CartPage = () => {
   const [total,setTotal] = useState('');
   const cart = useAppSelector(selectCart);
   const dispatch = useAppDispatch();
+  const dataInStorage = ls.getItems() ?? [];
   let productsMap:Map<string,number> = new Map();
 
   const handleDeleteButtonClick = (counter: number,barcode:string) => {
@@ -44,7 +45,7 @@ const CartPage = () => {
     for (let productNumber of productsMap){
       const barcode = productNumber[0];
       const quantity = productNumber[1];
-      const fullDescription = goodsData.find(data=>data.barcode === barcode);
+      const fullDescription = dataInStorage.find(data=>data.barcode === barcode);
       const price = fullDescription?.price.replace(',','.') ? +fullDescription?.price.replace(',','.') : 0;
       currentTotalPrice += price * quantity;
       if (fullDescription) productsArray.push(

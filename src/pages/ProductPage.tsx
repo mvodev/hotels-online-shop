@@ -1,19 +1,18 @@
 import { useState } from "react";
 import { useParams } from "react-router";
-import { Link } from "react-router-dom";
 import BreadCrumbs from "../components/bread-crumbs/BreadCrumbs";
-import Button from "../components/button/Button";
 import Counter from "../components/counter/Counter";
 import Header from "../components/header/Header";
-import goodsData from "../model/goodsData";
 import { addToCart } from "../redux/cartSlice";
 import { useAppDispatch } from "../redux/hooks";
+import ls from "../storage/LocalStorage";
 import './ProductPage.scss';
 
 const ProductPage = () => {
   const params = useParams();
   const barcodeOfProduct = params.id ?? '';
-  const productData = goodsData.find(data=>data.barcode === barcodeOfProduct);
+  const dataInStorage = ls.getItems() ?? [];
+  const productData = dataInStorage.find(data=>data.barcode === barcodeOfProduct);
   const dispatch = useAppDispatch();
 
   const handleCart = (counterOfProduct:number) => {
