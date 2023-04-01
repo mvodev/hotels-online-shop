@@ -40,7 +40,7 @@ const ChangePage = (props:ChangePagePropsType) => {
 
   const navigate = useNavigate();
 
-  const onSubmit: SubmitHandler<Inputs> = (data) => {
+  const handleSubmit: SubmitHandler<Inputs> = (data) => {
     if (typeOfCard === 'new') {
       ls.addItem(data);
     } else {
@@ -67,7 +67,7 @@ const ChangePage = (props:ChangePagePropsType) => {
           ]}/>
         <h1 className="change-page__header">{pageTitle}</h1>
         <div className="change-page__form-wrapper">
-        <AddItemForm onSubmit={onSubmit} typeOfForm={typeOfCard} productData={productData}/>
+        <AddItemForm onSubmit={handleSubmit} typeOfForm={typeOfCard} productData={productData}/>
         <Button buttonType='delete' onPointerDown={handleDelete}/>
         </div>
       </main>
