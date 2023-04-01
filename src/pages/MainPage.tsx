@@ -1,10 +1,10 @@
-import Card from './components/card/Card';
-import Footer from './components/footer/Footer';
-import Header from './components/header/Header';
+import Card from '../components/card/Card';
+import Footer from '../components/footer/Footer';
+import Header from '../components/header/Header';
 import './MainPage.scss';
-import Goods from './components/goods/Goods';
+import Goods from '../components/goods/Goods';
 import { Routes, Route } from 'react-router-dom';
-import Cards from './pages/ProductPage';
+import Cards from './ProductPage';
 
 const MainPage = () => {
   return (
