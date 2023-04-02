@@ -81,6 +81,13 @@ const AddItemForm = (props:AddItemFormTypeProps) => {
         title={'Бренд'}
         {...register("brand", { required: true })} />
       { errors.brand && <span className="change-page__error">Обязательное поле</span> }
+      <span className="change-page__description">Производитель:</span>
+      <input 
+        className="change-page__input"
+        title={'Производитель'}
+        defaultValue={productData?.manufacturer}
+        {...register("manufacturer", { required: true })} />
+      { errors.price && <span className="change-page__error">Обязательное поле</span> }
       <input 
         className="button button_common" 
         type="submit" 

@@ -41,6 +41,7 @@ const ChangePage = (props:ChangePagePropsType) => {
   const navigate = useNavigate();
 
   const handleSubmit: SubmitHandler<Inputs> = (data) => {
+    console.log(data)
     if (typeOfCard === 'new') {
       ls.addItem(data);
     } else {
