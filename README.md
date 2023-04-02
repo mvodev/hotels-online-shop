@@ -49,4 +49,4 @@
 
 ### Тестовая страница [https://mvodev.github.io/hotels-online-shop/]
 Страница администратора доступна по клику на логотип магазина
-{https://mvodev.github.io/hotels-online-shop/assets/logo-dark-7980ae6f.svg}
+(https://mvodev.github.io/hotels-online-shop/assets/logo-dark-7980ae6f.svg)
