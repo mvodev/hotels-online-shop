@@ -24,6 +24,7 @@ const Goods = (props:GoodsPropsType) => {
     (a, b) => a.title > b.title ? 1 : -1));
   const [ itemOffset, setItemOffset ] = useState(0);
   const [ manufacturer, setManufacturer ] = useState('');
+  const [ manufacturers, setManufacturers ] = useState<string[]>([]);
   const [ priceFilter, setPriceFilter ] = useState({
     min:'',
     max:'',
@@ -44,23 +45,32 @@ const Goods = (props:GoodsPropsType) => {
 
   useEffect(()=>{
     let copyOfGoods = [...dataInStorage];
-    if (manufacturer.length >0) {
+
+    if (manufacturers.length > 0) {
+      manufacturers.forEach(manufacturer=>{
+        copyOfGoods = copyOfGoods.filter(product => product.manufacturer === manufacturer);
+      })
+    } else if ( manufacturer.length > 0 ) {
       copyOfGoods = copyOfGoods.filter(product => product.manufacturer === manufacturer);
     }
+
     if (priceFilter.min.length > 0 && priceFilter.max.length) {
       const min = Number(priceFilter.min);
       const max = Number(priceFilter.max);
       copyOfGoods = copyOfGoods.filter(product => 
         Number(product.price.replace(',','.')) > min && Number(product.price.replace(',','.')) < max);
     }
+
     if (filtersState.length !== 0) {
       filtersState.forEach(filterState=>{
         copyOfGoods = copyOfGoods.filter(card=>card.typeOfCare.includes(filterState));
       })
     }
+
     copyOfGoods = sortByParams(sortBy,copyOfGoods);
     setCards(copyOfGoods);
-  },[filtersState,sortBy,manufacturer,priceFilter])
+    
+  },[filtersState,sortBy,manufacturer,priceFilter,manufacturers])
 
   const handlePaginationClick = (event:{selected:number}) => {
     const newOffset = (event.selected * GOODS_PER_PAGE) % cards.length;
@@ -125,6 +135,21 @@ const Goods = (props:GoodsPropsType) => {
     })
   }
 
+  const handleManufacturerChecked = (event: any) => {
+    const label = event.currentTarget.labels[0].innerText;
+    const checked = event.currentTarget.checked;
+    const stateOfManufacturers = [...manufacturers];
+    if (checked) {
+      stateOfManufacturers.push(label);
+    } else {
+      const index = stateOfManufacturers.indexOf(label);
+      if(index>-1) {
+        stateOfManufacturers.splice(index,1);
+      }
+    }
+    setManufacturers(stateOfManufacturers);
+  }
+
   return (
     <main className="goods">
       <div className="goods__header-wrapper">
@@ -154,7 +179,9 @@ const Goods = (props:GoodsPropsType) => {
           <Form type='search' searchHandler={handleSearchManufacturerForm}/>
           <FormGroup>
             {arrayOfManufacturers.map(manufacturer=>{
-              return <FormControlLabel key={manufacturer} control={<Checkbox />} label={manufacturer} checked={false}/>
+              return <FormControlLabel 
+              onChange={handleManufacturerChecked} 
+              key={manufacturer} control={<Checkbox />} label={manufacturer}/>
             })}
             
           </FormGroup>
