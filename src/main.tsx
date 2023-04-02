@@ -15,7 +15,7 @@ import ChangePage from './pages/ChangePage';
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
     <Provider store={store}>
-      <BrowserRouter>
+      <BrowserRouter basename='/hotels-online-shop'>
         <Routes>
           <Route path='/' element={<MainPage/>} />
           <Route path='/cards/:id' element={<SingleProductPage/>} />
