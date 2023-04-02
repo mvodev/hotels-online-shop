@@ -189,6 +189,7 @@ const Goods = (props:GoodsPropsType) => {
                 fontWeight: 400,
                 fontSize: 14,
                 lineHeight: 21,
+                fontFamily:'Inter',
               }}
               key={manufacturer} control={<Checkbox />} label={manufacturer}/>
             })}

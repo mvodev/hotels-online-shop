@@ -1,5 +1,5 @@
 .goods {
-  padding: 45px 277px 0 277px;
+  padding: 2.34% 14.43% 0 14.43%;
 
   &__header {
     font-family: 'Inter';
@@ -124,4 +124,40 @@
     margin-bottom: 203px;
   }
   
+}
+
+@media (max-width:1600px) {
+  .goods {
+    padding: 40px;
+    &__cards {
+      gap: 10px;
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+}
+
+@media (max-width:1000px) {
+  .goods {
+    &__header {
+      font-size: 20px;
+      font-weight: 500;
+      line-height: 24px;
+    }
+    padding: 20px;
+    &__cards {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+}
+
+@media (max-width:1000px) {
+  .goods {
+    &__main {
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+  }
 }
