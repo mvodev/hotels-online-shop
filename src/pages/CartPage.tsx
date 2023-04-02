@@ -8,12 +8,14 @@ import { addToCart, removeFromCart, selectCart } from '../redux/cartSlice';
 import { useAppDispatch, useAppSelector } from '../redux/hooks';
 import ls from '../storage/LocalStorage';
 import './CartPage.scss';
+import { useNavigate } from 'react-router';
 
 const CartPage = () => {
   const [products,setProducts] = useState<JSX.Element[]>();
   const [total,setTotal] = useState('');
   const cart = useAppSelector(selectCart);
   const dispatch = useAppDispatch();
+  const navigate = useNavigate();
   const dataInStorage = ls.getItems() ?? [];
   let productsMap:Map<string,number> = new Map();
 
@@ -30,6 +32,10 @@ const CartPage = () => {
     } else if (oldPNumberProductsInCart && oldPNumberProductsInCart > counter) {
       dispatch(removeFromCart({barcode}));
     }
+  }
+
+  const handleRegisterOrder = () => {
+    navigate('/confirm')
   }
 
   useEffect(()=>{
@@ -75,7 +81,11 @@ const CartPage = () => {
           {products}
         </div>
         <div className="cart-page__prepare">
-          <Button buttonType='common' text='Оформить заказ'/>
+          <Button 
+            buttonType='common' 
+            text='Оформить заказ'
+            onPointerDown={handleRegisterOrder}
+          />
           <span className='cart-page__total'>{total + ' '}&#8376;</span>
         </div>
       </main>

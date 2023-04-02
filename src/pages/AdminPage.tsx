@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import AdminCard from '../components/admin-card/AdminCard';
 import BreadCrumbs from '../components/bread-crumbs/BreadCrumbs';
@@ -29,7 +28,9 @@ const AdminPage = () => {
           {link: '/',name:'Страница администратора',actual:true}
         ]}/>
         <h1 className='admin__header'>Страница администратора</h1>
-        <h2 className='admin__sub-header'>Кликните по карточке товара для изменения или удаления информации или нажмите кнопку добавить для внесения новой</h2>
+        <h2 className='admin__sub-header'>
+          Кликните по карточке товара для изменения или удаления информации или нажмите кнопку добавить для внесения новой
+        </h2>
         <Button buttonType='add' onPointerDown={handleAdd}/>
         <div className="admin__cards">
           {cards}

@@ -11,6 +11,7 @@ import NotFound from './pages/NotFound';
 import CartPage from './pages/CartPage';
 import AdminPage from './pages/AdminPage';
 import ChangePage from './pages/ChangePage';
+import ConfirmPage from './pages/ConfirmPage';
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
@@ -21,6 +22,7 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
           <Route path='/cards/:id' element={<SingleProductPage/>} />
           <Route path='/cart' element={<CartPage/>} />
           <Route path='/admin' element={<AdminPage/>} />
+          <Route path='/confirm' element={<ConfirmPage/>} />
           <Route path='/admin/:id' element={<ChangePage/>} />
           <Route path='/admin/add' element={<ChangePage typeOfCard={'new'}/>} />
           <Route path='*' element={<NotFound />}/>
