@@ -6,10 +6,11 @@ export type CounterPropsType = {
   handleClick: (counter:number)=>void,
   initialCounter?: number,
   maxValue?:number,
+  price?:string,
 }
 
 const Counter = (props:CounterPropsType) => {
-  const { handleClick,initialCounter = 0 } = props;
+  const { handleClick,initialCounter = 0,price } = props;
   const [counter,setCounter] = useState(initialCounter);
 
   const handleCounter = (event:React.PointerEvent<HTMLButtonElement>) => {
@@ -23,9 +24,12 @@ const Counter = (props:CounterPropsType) => {
 
   return (
     <div className="counter">
-      <button type='button' className='counter__button counter__button_minus' onPointerDown={handleCounter}>-</button>
-      <span>{counter}</span>
-      <button type='button' className='counter__button counter__button_plus' onPointerDown={handleCounter}>+</button>
+      <div className="counter__wrapper">
+        {price && <span className='counter__price'>{price} &#8376;</span>}
+        <button type='button' className='counter__button counter__button_minus' onPointerDown={handleCounter}>-</button>
+        <span>{counter}</span>
+        <button type='button' className='counter__button counter__button_plus' onPointerDown={handleCounter}>+</button>
+      </div>
       <Button buttonType='cart-wide' text=' В КОРЗИНУ' onPointerDown={()=>{
           setCounter(0);
           handleClick(counter);
