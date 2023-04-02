@@ -47,8 +47,7 @@ const SingleProductPage = () => {
               <div className="cards__quantity-size">{productData?.quantity}</div>
             </div>
             <div className="cards__price">
-              <span>{productData?.price+' '}&#8376;</span>
-              <Counter handleClick={handleCart}/>
+              <Counter price={productData?.price+' '} handleClick={handleCart}/>
             </div>
             <div className="cards__manufacturer">Производитель: <i>{productData?.manufacturer}</i></div>
             <div className="cards__brand">Бренд: <i>{productData?.brand}</i></div>

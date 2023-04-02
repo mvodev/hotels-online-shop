@@ -1,5 +1,5 @@
 .cards {
-  padding: 45px 277px 60px 277px;
+  padding: 2.34% 14.43% 60px 14.43%;
 
   &__header {
     font-family: 'Inter';
@@ -18,6 +18,7 @@
     img {
       display: block;
       margin: 0 auto;
+      object-fit: cover;
     }
   }
 
@@ -41,10 +42,16 @@
     gap: 5px;
   }
 
+  &__right-side {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+
   &__manufacturer,
   &__brand,
   &__barcode {
-    margin-top: 5px;
+    // margin-top: 5px;
     font-family: 'Inter';
     font-size: 14px;
     font-weight: 300;
@@ -65,5 +72,51 @@
     display: flex;
     align-items: center;
     gap: 40px;
+  }
+}
+
+@media (max-width:1700px) {
+  .cards {
+    padding: 40px;
+  }
+}
+
+@media (max-width:1400px) {
+  .cards {
+    &__wrapper {
+      flex-direction: column;
+      align-items: center;
+    }
+    &__header {
+      text-align: center;
+    }
+  }
+}
+
+@media (max-width:600px) {
+  .cards {
+    &__header {
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 400;
+      i {
+        font-style: normal;
+        font-weight: 800;
+      }
+    }
+    &__img {
+      width: 256px;
+      height: 179px;
+      img {
+        display: block;
+        margin: 0 auto;
+      }
+    }
+
+    &__price {
+      flex-direction: column;
+      gap: 20px;
+      align-items: flex-start;
+    }
   }
 }
