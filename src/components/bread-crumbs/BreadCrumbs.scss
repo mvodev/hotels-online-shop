@@ -16,3 +16,10 @@
     }
   }
 }
+
+@media (max-width:600px) {
+  .bread-crumbs {
+    flex-direction: column;
+  }
+
+}
