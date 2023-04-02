@@ -1,16 +1,18 @@
 .logo {
   width: 156px;
   height: 66px;
-  flex: 0 0 156px;
 
-  &_color_white {
-    background-image: url('../../assets/images/logo-white.svg');
+  &__img {
+    width: 156px;
+    height: 66px;
+    &_color_white {
+      background-image: url('../../assets/images/logo-white.svg');
+    }
+
+    &_color_dark {
+      background-image: url('../../assets/images/logo-dark.svg');
+    }
   }
-
-  &_color_dark {
-    background-image: url('../../assets/images/logo-dark.svg');
-  }
-
   &_small {
     width: 97px;
     height: 41px;
@@ -18,5 +20,4 @@
     background-repeat: no-repeat;
     flex: 0 0 97px;
   }
-
 }
