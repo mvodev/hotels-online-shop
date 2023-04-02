@@ -25,3 +25,18 @@
   }
 
 }
+
+@media (max-width:1200px) {
+  .admin {
+    padding: 40px;
+  }
+}
+
+@media (max-width:1200px) {
+  .admin {
+    padding: 20px;
+    &__header {
+      font-size: 20px;
+    }
+  }
+}
