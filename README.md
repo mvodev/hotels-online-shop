@@ -50,3 +50,22 @@
 ### Тестовая страница [https://mvodev.github.io/hotels-online-shop/]
 Страница администратора доступна по клику на логотип магазина
 (https://mvodev.github.io/hotels-online-shop/assets/logo-dark-7980ae6f.svg)
+
+### Клонирование
+```
+  git clone https://github.com/mvodev/hotels-online-shop
+```
+### Установка
+```
+  npm i
+```
+### Сборка проекта в режиме dev server
+```
+  npm run dev
+```
+### Сборка проекта в режиме production
+```
+  npm run build
+```
+## Результат сборки проекта
+  Находится в папке dist
