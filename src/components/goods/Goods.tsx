@@ -47,9 +47,12 @@ const Goods = (props:GoodsPropsType) => {
     let copyOfGoods = [...dataInStorage];
 
     if (manufacturers.length > 0) {
+      let temp:CardTypeProps[] = [];
       manufacturers.forEach(manufacturer=>{
-        copyOfGoods = copyOfGoods.filter(product => product.manufacturer === manufacturer);
+        let copyOfGoodsFiltered = copyOfGoods.filter(product => product.manufacturer === manufacturer);
+        temp.push(...copyOfGoodsFiltered);
       })
+      copyOfGoods = [...temp];
     } else if ( manufacturer.length > 0 ) {
       copyOfGoods = copyOfGoods.filter(product => product.manufacturer === manufacturer);
     }
@@ -181,6 +184,12 @@ const Goods = (props:GoodsPropsType) => {
             {arrayOfManufacturers.map(manufacturer=>{
               return <FormControlLabel 
               onChange={handleManufacturerChecked} 
+              sx={{
+                color: '#3F4E65',
+                fontWeight: 400,
+                fontSize: 14,
+                lineHeight: 21,
+              }}
               key={manufacturer} control={<Checkbox />} label={manufacturer}/>
             })}
             
