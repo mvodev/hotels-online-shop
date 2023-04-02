@@ -21,11 +21,15 @@ export const cartSlice = createSlice({
       if (index >-1) {
         state.cart.splice(index,1);
       }
-    }
+    },
+    clearCart: (state) => {
+      const length = state.cart.length;
+      state.cart.splice(0,length);
+    },
   },
 });
 
-export const { addToCart, removeFromCart } = cartSlice.actions;
+export const { addToCart, removeFromCart, clearCart } = cartSlice.actions;
 
 export const selectCart = (state: RootState) => state.cart.cart;
 

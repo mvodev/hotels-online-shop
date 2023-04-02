@@ -4,7 +4,7 @@ import Button from '../components/button/Button';
 import Footer from '../components/footer/Footer';
 import Header from '../components/header/Header';
 import ShortCard from '../components/short-card/ShortCard';
-import { addToCart, removeFromCart, selectCart } from '../redux/cartSlice';
+import { addToCart, clearCart, removeFromCart, selectCart } from '../redux/cartSlice';
 import { useAppDispatch, useAppSelector } from '../redux/hooks';
 import ls from '../storage/LocalStorage';
 import './CartPage.scss';
@@ -35,7 +35,8 @@ const CartPage = () => {
   }
 
   const handleRegisterOrder = () => {
-    navigate('/confirm')
+    navigate('/confirm');
+    dispatch(clearCart());
   }
 
   useEffect(()=>{
