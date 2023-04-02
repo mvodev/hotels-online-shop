@@ -6,7 +6,7 @@ import 'normalize.css';
 import './index.scss';
 import {store} from './redux/store';
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import ProductPage from './pages/ProductPage';
+import SingleProductPage from './pages/SingleProductPage';
 import NotFound from './pages/NotFound';
 import CartPage from './pages/CartPage';
 import AdminPage from './pages/AdminPage';
@@ -18,7 +18,7 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
       <BrowserRouter>
         <Routes>
           <Route path='/' element={<MainPage/>} />
-          <Route path='/cards/:id' element={<ProductPage/>} />
+          <Route path='/cards/:id' element={<SingleProductPage/>} />
           <Route path='/cart' element={<CartPage/>} />
           <Route path='/admin' element={<AdminPage/>} />
           <Route path='/admin/:id' element={<ChangePage/>} />

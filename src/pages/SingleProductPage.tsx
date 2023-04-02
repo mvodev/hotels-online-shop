@@ -6,9 +6,9 @@ import Header from "../components/header/Header";
 import { addToCart } from "../redux/cartSlice";
 import { useAppDispatch } from "../redux/hooks";
 import ls from "../storage/LocalStorage";
-import './ProductPage.scss';
+import './SingleProductPage.scss';
 
-const ProductPage = () => {
+const SingleProductPage = () => {
   const params = useParams();
   const barcodeOfProduct = params.id ?? '';
   const dataInStorage = ls.getItems() ?? [];
@@ -60,4 +60,4 @@ const ProductPage = () => {
     )
 }
 
-export default ProductPage;
+export default SingleProductPage;
