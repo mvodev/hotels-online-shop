@@ -3,14 +3,16 @@ import ChangePage from './ChangePage';
 import { BrowserRouter } from "react-router-dom";
 import '@testing-library/jest-dom';
 
-const mockedUsedNavigate = jest.fn();
+describe('Change page test correct heading',() => {
 
-jest.mock("react-router-dom", () => ({
-  ...(jest.requireActual("react-router-dom") as any),
-  useNavigate: () => mockedUsedNavigate
-}));
+  beforeAll(()=>{
+    const mockedUsedNavigate = jest.fn();
 
-describe('Change page',()=>{
+    jest.mock("react-router-dom", () => ({
+      ...(jest.requireActual("react-router-dom") as any),
+      useNavigate: () => mockedUsedNavigate
+    }));
+  })
 
   test('renders Change Page correct heading without typeOfCard props', () => {
     render(
