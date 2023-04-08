@@ -67,7 +67,7 @@ describe('Change page test correct transition after click on bread crumbs',() =>
 
     const link = screen.getByRole('link',{ name: "Страница администратора" });
     userEvent.click(link);
-    expect(screen.getByRole('heading',{ name: "Страница администратора" }))
+    expect(screen.getByRole('heading',{ name: "Страница администратора" })).toBeInTheDocument();
   });
 
   afterAll(() => {
