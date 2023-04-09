@@ -1,4 +1,4 @@
-import reducer, { addToCart, clearCart, removeFromCart } from './cartSlice';
+import reducer, { addToCart, clearCart, removeFromCart } from '../redux/cartSlice';
 
 describe('test cart store',() => {
 

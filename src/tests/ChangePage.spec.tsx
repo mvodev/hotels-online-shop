@@ -1,10 +1,10 @@
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import ChangePage from './ChangePage';
+import ChangePage from '../pages/ChangePage';
 
 import { MemoryRouter } from "react-router-dom";
 import '@testing-library/jest-dom';
-import AdminPage from './AdminPage';
+import AdminPage from '../pages/AdminPage';
 
 describe('Change page test correct heading',() => {
 
